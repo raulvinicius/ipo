@@ -1,0 +1,9 @@
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /area-do-aluno/
+Disallow: /student-area/
+Disallow: /wp-content/themes/ipo/page-inscricao.php
+Disallow: /wp-content/themes/ipo/page-envia-email.php
