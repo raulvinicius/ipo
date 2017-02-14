@@ -1,5 +1,3 @@
-<!-- CÓDIGO HTML VEM AQUI -->
-
 <?php 
 
     if ( is_home() && $_COOKIE['tipo_ipo'] == 'escola' ) : 
@@ -30,42 +28,45 @@
     endif;
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <!--[if lt IE 7]>
-      <html 
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html 
         xmlns='http://www.w3.org/1999/xhtml' 
         xmlns:og='http://ogp.me/ns#' 
         class="no-js lt-ie9 lt-ie8 lt-ie7" 
-        lang="pt-br">
+        lang="<?php echo (pll_current_language() == 'pt') ? 'pt-br' : 'en-us'; ?>">
 <![endif]-->
 <!--[if IE 7]>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html 
         xmlns='http://www.w3.org/1999/xhtml' 
         xmlns:og='http://ogp.me/ns#' 
         class="no-js lt-ie9 lt-ie8" 
-        lang="pt-br">
+        lang="<?php echo (pll_current_language() == 'pt') ? 'pt-br' : 'en-us'; ?>">
 <![endif]-->
 <!--[if IE 8]>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html 
         xmlns='http://www.w3.org/1999/xhtml' 
         xmlns:og='http://ogp.me/ns#' 
         class="no-js lt-ie9" 
-        lang="pt-br">
+        lang="<?php echo (pll_current_language() == 'pt') ? 'pt-br' : 'en-us'; ?>">
 <![endif]-->
-<!--[if gt IE 8]><!-->
+<!--[if gt IE 8]>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
     xmlns='http://www.w3.org/1999/xhtml'
     xmlns:og='http://ogp.me/ns#'
     class="no-js"
-    lang="pt-br">
+    lang="<?php echo (pll_current_language() == 'pt') ? 'pt-br' : 'en-us'; ?>">
 <!--<![endif]-->
 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <title><?php echo ( $post->post_name != '' ) ? get_the_title() . " | " : ""; ?>IPO:PALMIERI</title>
+        <title><?php echo ( $post->post_name != '' && is_home() == false ) ? get_the_title() . " | " : ""; ?>IPO:PALMIERI</title>
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -106,40 +107,166 @@
 
         <!-- PUBLICAÇÃO EM REDES SOCIAIS -->
 
+        <meta itemprop="name" content="IPO:PALMIERI">
+
         <!-- FACEBOOK -->
-        <meta property='fb:admins' content='fanpagedofacebook' /> <!-- essa configuração diz ao Facebook que você é o administrador da fanpage -->
-        <meta property='og:locale' content='pt_BR' />
-        <meta property='og:locale:alternate' content='en_US' /> <!-- idiomas alternativos em que o site também pode estar disponível -->
-        <meta property='og:title' content='' /> <!-- título interessante para a página (ex.: Conhecendo a equipe) -->
-        <meta property='og:site_name' content='' /> <!-- nome do site (ex.: Empresa X) -->
-        <meta property='og:description' content='' /> <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
-        <meta property='og:url' content='<?php bloginfo('url') ?>' />
-        <meta property='og:image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/>
+        <meta property='og:updated_time' content='<?php echo date("c") ?>' /> <!-- essa configuração diz ao Facebook que você é o administrador da fanpage -->
+        <meta property='og:locale' content='<?php echo (pll_current_language() == 'pt') ? 'pt_BR' : 'en_US'; ?>' />
+        <meta property='og:locale:alternate' content='<?php echo (pll_current_language() == 'pt') ? 'en_US' : 'pt_BR'; ?>' /> <!-- idiomas alternativos em que o site também pode estar disponível -->
+        <meta property='og:title' content='<?php echo ( $post->post_name != '' && is_home() == false ) ? get_the_title() : ""; ?>' /> <!-- título da página (ex.: Conhecendo a equipe) -->
+        <meta property='og:site_name' content='IPO:PALMIERI' /> <!-- nome do site (ex.: Empresa X) -->
+
+        <?php
+
+            if ( isset( $post->ID ) ): 
+
+                $pType = get_post_type( $post->ID );
+
+                echo "<!--";
+                var_dump($post->post_name);
+                echo "-->";
+
+
+                if ($pType == 'cursos')
+                {
+                    $exDescricao = wp_strip_all_tags( get_field('descricao') );
+                    if( strlen($exDescricao) > 195)
+                    {
+                        $exDescricao = substr( $exDescricao, 0, 195);
+                        $exDescricao = substr( $exDescricao, 0, strrpos($exDescricao, " ")) . '...';
+                    }
+
+                ?>
+                    <meta name='twitter:description' content='<?php echo $exDescricao ?>' />
+                    <meta property='og:description' content='<?php echo $exDescricao ?>' />
+                    <meta itemprop='description' content='<?php echo $exDescricao ?>'>
+                <?php 
+                }
+                else if ($pType == 'post')
+                {
+                    $exDescricao = wp_strip_all_tags( $post->post_content );
+                    if( strlen($exDescricao) > 195)
+                    {
+                        $exDescricao = substr( $exDescricao, 0, 195);
+                        $exDescricao = substr( $exDescricao, 0, strrpos($exDescricao, " ")) . '...';
+                    }
+
+                ?>
+                    <meta name='twitter:description' content='<?php echo $exDescricao ?>' />
+                    <meta property='og:description' content='<?php echo $exDescricao ?>' />
+                    <meta itemprop='description' content='<?php echo $exDescricao ?>'>
+                <?php 
+                }
+                else
+                {
+                ?>
+                    <meta name='twitter:description' content='Odontologia de Vanguarda' />
+                    <meta property='og:description' content='Odontologia de Vanguarda' />
+                    <meta itemprop='description' content='Odontologia de Vanguarda'>
+                <?php 
+                }
+
+            endif;
+
+        ?>
+        
+        <meta property='og:url' content='<?php echo ( $post->ID != '' && is_home() == false ) ? get_permalink( $post->ID ) : bloginfo('url') ?>' />
+
+        <?php
+
+
+
+            if ( isset( $post->ID ) ): 
+
+                $pType = get_post_type( $post->ID );
+
+                if ($pType == 'cursos') :
+                ?>
+                    <meta itemprop="image" content="<?php echo get_field('imagem_sociais')['sizes']['face-card'] ?>">
+                    <meta property="og:image" content="<?php echo get_field('imagem_sociais')['sizes']['face-card'] ?>"/>
+                    <meta name='twitter:image' content='<?php echo get_field('imagem_sociais')['sizes']['twitter-card'] ?>'/>
+                    <meta itemprop='image' content='<?php echo get_field('imagem_sociais')['sizes']['twitter-card'] ?>'/>
+                <?php 
+                elseif( $pType == 'page' && $post->post_name != 'blog' ) :
+                ?>
+                    <meta property='og:image' content='<?php echo bloginfo('template_url') ?>/img/ipo-<?php echo $_COOKIE['tipo_ipo'] ?>.png'/>
+                    <meta name='twitter:image' content='<?php echo bloginfo('template_url') ?>/img/ipo-<?php echo $_COOKIE['tipo_ipo'] ?>-twitter.png'/>
+                    <meta itemprop='image' content='<?php echo bloginfo('template_url') ?>/img/ipo-<?php echo $_COOKIE['tipo_ipo'] ?>-twitter.png'/>
+                <?php 
+                elseif( $pType == 'page' && $post->post_name == 'blog' ) :
+
+                    $lPost = wp_get_recent_posts( array(
+                        'post_type' => 'post', 
+                        'numberposts' => '1'
+                    ), 'OBJECT' );
+
+                    ?>
+                    <meta property='og:image' content='<?php echo get_field('imagem', $lPost[0]->ID)['sizes']['face-card'] ?>'/>
+                    <meta name='twitter:image' content='<?php echo get_field('imagem', $lPost[0]->ID)['sizes']['twitter-card'] ?>'/>
+                    <meta itemprop='image' content='<?php echo get_field('imagem', $lPost[0]->ID)['sizes']['twitter-card'] ?>'/>
+                <?php 
+                elseif( $pType == 'post' ) :
+
+                    ?>
+                    <meta property='og:image' content='<?php echo get_field('imagem')['sizes']['face-card'] ?>'/>
+                    <meta name='twitter:image' content='<?php echo get_field('imagem')['sizes']['twitter-card'] ?>'/>
+                    <meta itemprop='image' content='<?php echo get_field('imagem')['sizes']['twitter-card'] ?>'/>
+                <?php 
+                elseif( is_home() ) :
+                ?>
+                    <meta property='og:image' content='<?php echo bloginfo('template_url') ?>/img/ipo-clinica.png'/>
+                    <meta name='twitter:image' content='<?php echo bloginfo('template_url') ?>/img/ipo-clinica-twitter.png'/>
+                    <meta itemprop='image' content='<?php echo bloginfo('template_url') ?>/img/ipo-clinica-twitter.png'/>
+                <?php 
+                endif;
+
+            endif;
+
+        ?>
+
         <meta property='og:image:type' content="image/png">
         <meta property="og:image:width" content="800">
         <meta property="og:image:height" content="600">
-        <meta property='og:type' content='website' />
+        
         <!-- caso o tipo seja um "ARTICLE" -->
-        <!-- 
-        <meta property="og:type" content="article">
-        <meta property="article:author" content="Autor">
-        <meta property="article:section" content="Tutoriais">
-        <meta property="article:tag" content="Facebook, tags, og, open graph">
-        <meta property="article:published_time" content="date_time">
-         -->
+        <?php if ( $pType == 'post' ) : ?>
+
+            <meta property="og:type" content="article">
+            <meta property="article:author" content="IPO:PALMIERI">
+            <meta property="article:section" content="Blog">
+            <!-- <meta property="article:tag" content="Facebook, tags, og, open graph"> -->
+            <?php 
+
+                if (pll_current_language() == 'pt') :
+
+                    $mss = array('Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez');
+
+                else :
+                    
+                    $mss = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+
+                endif;
+
+
+                $pTime = date('d,n,Y', strtotime($post->post_date_gmt));
+                $pTime = explode(',', $pTime);
+                $pTime = $pTime[0] . ' de ' . $mss[intval($pTime[1]) - 1] . ', ' . $pTime[2];
+
+            ?>
+            <meta property="article:published_time" content="<?php echo $pTime ?>">
+
+        <?php else : ?>
+            <meta property='og:type' content='website' />
+        <?php endif; ?>
 
         <!-- TWITTER -->
         <meta name='twitter:card' content='summary'> <!-- photo (para imagens), player (para vídeos), Summary (para todo o resto) -->
-        <meta name='twitter:url' content='<?php bloginfo('url') ?>'>
-        <meta name='twitter:title' content='' /> <!-- título interessante para a página (ex.: Conhecendo a equipe) -->
-        <meta name='twitter:description' content='' /> <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
-        <meta name='twitter:image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/> <!-- entre 60x60px e 120x120px -->
+        <meta name='twitter:url' content='<?php echo ( is_home() ) ? bloginfo("url") : get_permalink($post->ID); ?>'>
+        <meta name='twitter:title' content='<?php echo ( $post->post_name != '' && is_home() == false ) ? get_the_title() : ""; ?>' /> <!-- título interessante para a página (ex.: Conhecendo a equipe) -->
 
         <!-- GOOGLE+ -->
         <!-- Atualize a tag html para incluir os atributos itemscope e itemtype. -->
-        <meta itemprop='name' content=''> <!-- nome ou título interessante para a página (ex.: Conhecendo a equipe) -->
-        <meta itemprop='description' content=''>  <!-- Descrição do conteúdo/site para intrigar os usuários (ex.: Fazendo o bem para o mundo), max: 200 caracteres -->
-        <meta itemprop='image' content='<?php bloginfo('template_url') ?>/img/imagem.png'/> <!-- entre 60x60px e 120x120px -->
+        <meta itemprop='name' content='IPO:PALMIERI'> <!-- nome ou título interessante para a página (ex.: Conhecendo a equipe) -->
 
 
     </head>
@@ -314,7 +441,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                </ul><ul id="links" class="ani-06 menu-escola <?php echo ($_COOKIE['tipo_ipo'] != 'escola') ? 'hiddden' : 'showed'?>">
+                                </ul><ul id="links" class="lockd ani-06 menu-escola <?php echo ($_COOKIE['tipo_ipo'] != 'escola') ? 'hiddden' : 'showed'?>">
                                     <li class="ani-04">
                                         <a class="ani-04" onclick="gravaTipoSite('escola')" href="<?php bloginfo('url') ?>/<?php l('escola/a-escola', 'school/our-school') ?>">
                                             <div id="wrap">
@@ -375,9 +502,9 @@
                                             </div>
                                         </a>
                                     </li>
-                                </ul><ul id="links" class="ani-06 menu-clinica <?php echo ($_COOKIE['tipo_ipo'] != 'clinica') ? 'hiddden' : 'showed'?>">
+                                </ul><ul id="links" class="lockd ani-06 menu-clinica <?php echo ($_COOKIE['tipo_ipo'] != 'clinica') ? 'hiddden' : 'showed'?>">
                                     <li class="ani-04">
-                                        <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/a-clinica', 'clinic/about-us') ?>">
+                                        <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/a-clinica', 'clinic/our-clinic') ?>">
                                             <div id="wrap">
                                                 <?php l('A Clínica', 'About Us') ?>
                                             </div>
@@ -390,22 +517,50 @@
                                             </div>
                                         </a>
                                     </li>
-    <!--
-                                     <li class="ani-04">
-                                        <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/dentistas', 'clinic/dentists') ?>">
-                                            <div id="wrap">
-                                                <?php l('Dentistas', 'Our Dentists') ?>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="ani-04">
-                                        <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/blog', 'clinic/blog') ?>">
-                                            <div id="wrap">
-                                                Blog
-                                            </div>
-                                        </a>
-                                    </li>
-     -->
+
+                                    <?php
+
+                                        $posts = get_post_by_type('dentistas');
+                                        $nPosts = count( $posts->posts );
+
+
+                                        if ( $nPosts > 0 ): ?>
+
+                                            <li class="ani-04">
+                                                <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/dentistas', 'clinic/dentists') ?>">
+                                                    <div id="wrap">
+                                                        <?php l('Dentistas', 'Our Dentists') ?>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        <?php endif; 
+                                    ?>
+
+                                    <?php 
+
+                                        $posts = get_post_by_type(NULL);
+                                        $nPosts = count( $posts->posts );
+
+
+                                        if ( $nPosts > 0 ):
+
+                                        ?>
+                                    
+                                        <li class="ani-04">
+                                            <a class="ani-04" onclick="gravaTipoSite('escola')" href="<?php bloginfo('url') ?>/<?php l('escola/blog', 'school/blog') ?>">
+                                                <div id="wrap">
+                                                    Blog
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <?php 
+
+                                        endif;
+
+                                    ?>
+
                                      <li class="ani-04">
                                         <a class="ani-04" onclick="jivo_api.open();" href="javascript:void(0)">
                                             <div id="wrap">

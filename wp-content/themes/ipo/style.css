@@ -151,7 +151,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
-.nome-empresa
+.nome-empresa,
+.no-wrap
 {
     white-space: nowrap;
 }
@@ -501,43 +502,43 @@ button.ipo-bt.secundario
 
 
 .col-xs-offset-right-12 {
-  margin-right: 100%;
+    margin-right: 100%;
 }
 .col-xs-offset-right-11 {
-  margin-right: 91.66666667%;
+    margin-right: 91.66666667%;
 }
 .col-xs-offset-right-10 {
-  margin-right: 83.33333333%;
+    margin-right: 83.33333333%;
 }
 .col-xs-offset-right-9 {
-  margin-right: 75%;
+    margin-right: 75%;
 }
 .col-xs-offset-right-8 {
-  margin-right: 66.66666667%;
+    margin-right: 66.66666667%;
 }
 .col-xs-offset-right-7 {
-  margin-right: 58.33333333%;
+    margin-right: 58.33333333%;
 }
 .col-xs-offset-right-6 {
-  margin-right: 50%;
+    margin-right: 50%;
 }
 .col-xs-offset-right-5 {
-  margin-right: 41.66666667%;
+    margin-right: 41.66666667%;
 }
 .col-xs-offset-right-4 {
-  margin-right: 33.33333333%;
+    margin-right: 33.33333333%;
 }
 .col-xs-offset-right-3 {
-  margin-right: 25%;
+    margin-right: 25%;
 }
 .col-xs-offset-right-2 {
-  margin-right: 16.66666667%;
+    margin-right: 16.66666667%;
 }
 .col-xs-offset-right-1 {
-  margin-right: 8.33333333%;
+    margin-right: 8.33333333%;
 }
 .col-xs-offset-right-0 {
-  margin-right: 0;
+    margin-right: 0;
 }
 @media (min-width: 768px) {
 
@@ -555,47 +556,59 @@ button.ipo-bt.secundario
 
 
 
-  .col-sm-offset-right-12 {
+    .col-sm-offset-right-12 {
     margin-right: 100%;
-  }
-  .col-sm-offset-right-11 {
+    }
+    .col-sm-offset-right-11 {
     margin-right: 91.66666667%;
-  }
-  .col-sm-offset-right-10 {
+    }
+    .col-sm-offset-right-10 {
     margin-right: 83.33333333%;
-  }
-  .col-sm-offset-right-9 {
+    }
+    .col-sm-offset-right-9 {
     margin-right: 75%;
-  }
-  .col-sm-offset-right-8 {
+    }
+    .col-sm-offset-right-8 {
     margin-right: 66.66666667%;
-  }
-  .col-sm-offset-right-7 {
+    }
+    .col-sm-offset-right-7 {
     margin-right: 58.33333333%;
-  }
-  .col-sm-offset-right-6 {
+    }
+    .col-sm-offset-right-6 {
     margin-right: 50%;
-  }
-  .col-sm-offset-right-5 {
+    }
+    .col-sm-offset-right-5 {
     margin-right: 41.66666667%;
-  }
-  .col-sm-offset-right-4 {
+    }
+    .col-sm-offset-right-4 {
     margin-right: 33.33333333%;
-  }
-  .col-sm-offset-right-3 {
+    }
+    .col-sm-offset-right-3 {
     margin-right: 25%;
-  }
-  .col-sm-offset-right-2 {
+    }
+    .col-sm-offset-right-2 {
     margin-right: 16.66666667%;
-  }
-  .col-sm-offset-right-1 {
+    }
+    .col-sm-offset-right-1 {
     margin-right: 8.33333333%;
-  }
-  .col-sm-offset-right-0 {
+    }
+    .col-sm-offset-right-0 {
     margin-right: 0;
-  }
+    }
 }
 @media (min-width: 992px) {
+    .md-alpha
+    {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .md-omega
+    {
+        margin-right: 0;
+        padding-right: 0;
+    }
+/*
     .md-no-alpha
     {
         padding-left: 15px;
@@ -605,88 +618,171 @@ button.ipo-bt.secundario
     {
         padding-right: 15px;
     }
+*/
 
 
-  .col-md-offset-right-12 {
+.pagina-blog .news li.md-float-title article p
+{
+    display: none;
+}
+
+.pagina-blog .news li.md-float-title #wrap
+{
+    background: red;
+    margin: -15px;
+    padding: 15px;
+    padding-top: 0;
+    background: url(img/ipo-msk-img-blog.png) repeat-x bottom left;
+}
+
+.pagina-blog .news li.md-float-title
+{
+    margin-bottom: 30px;
+}
+    
+.pagina-blog .news li.md-float-title,
+.pagina-blog .news li.md-float-title img
+{
+    display: block;
+    position: relative;
+}
+
+.pagina-blog .news li.md-float-title img
+{
+    border: none;
+}
+
+.pagina-blog .news li.md-float-title header #wrap
+{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.pagina-blog .news li.md-float-title time
+{
+    margin: 0;
+}
+
+.pagina-blog .news li.md-float-title:after,
+.pagina-blog .news li.md-float-title:before
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: 100% 60%;
+    z-index: 8;
+}
+
+.pagina-blog .news li.md-float-title:before
+{
+    background: url(img/space.gif);
+    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
+}
+
+.pagina-blog .news li.md-float-title:hover:before
+{
+    background: url(img/grey-40.png);
+}
+
+.pagina-blog .news li.md-float-title a:hover h2
+{
+    color: white;
+}
+
+
+
+
+    .col-md-offset-right-12 {
     margin-right: 100%;
-  }
-  .col-md-offset-right-11 {
+    }
+    .col-md-offset-right-11 {
     margin-right: 91.66666667%;
-  }
-  .col-md-offset-right-10 {
+    }
+    .col-md-offset-right-10 {
     margin-right: 83.33333333%;
-  }
-  .col-md-offset-right-9 {
+    }
+    .col-md-offset-right-9 {
     margin-right: 75%;
-  }
-  .col-md-offset-right-8 {
+    }
+    .col-md-offset-right-8 {
     margin-right: 66.66666667%;
-  }
-  .col-md-offset-right-7 {
+    }
+    .col-md-offset-right-7 {
     margin-right: 58.33333333%;
-  }
-  .col-md-offset-right-6 {
+    }
+    .col-md-offset-right-6 {
     margin-right: 50%;
-  }
-  .col-md-offset-right-5 {
+    }
+    .col-md-offset-right-5 {
     margin-right: 41.66666667%;
-  }
-  .col-md-offset-right-4 {
+    }
+    .col-md-offset-right-4 {
     margin-right: 33.33333333%;
-  }
-  .col-md-offset-right-3 {
+    }
+    .col-md-offset-right-3 {
     margin-right: 25%;
-  }
-  .col-md-offset-right-2 {
+    }
+    .col-md-offset-right-2 {
     margin-right: 16.66666667%;
-  }
-  .col-md-offset-right-1 {
+    }
+    .col-md-offset-right-1 {
     margin-right: 8.33333333%;
-  }
-  .col-md-offset-right-0 {
+    }
+    .col-md-offset-right-0 {
     margin-right: 0;
-  }
+    }
 }
 @media (min-width: 1200px) {
-  .col-lg-offset-right-12 {
+    .col-lg-offset-right-12 {
     margin-right: 100%;
-  }
-  .col-lg-offset-right-11 {
+    }
+    .col-lg-offset-right-11 {
     margin-right: 91.66666667%;
-  }
-  .col-lg-offset-right-10 {
+    }
+    .col-lg-offset-right-10 {
     margin-right: 83.33333333%;
-  }
-  .col-lg-offset-right-9 {
+    }
+    .col-lg-offset-right-9 {
     margin-right: 75%;
-  }
-  .col-lg-offset-right-8 {
+    }
+    .col-lg-offset-right-8 {
     margin-right: 66.66666667%;
-  }
-  .col-lg-offset-right-7 {
+    }
+    .col-lg-offset-right-7 {
     margin-right: 58.33333333%;
-  }
-  .col-lg-offset-right-6 {
+    }
+    .col-lg-offset-right-6 {
     margin-right: 50%;
-  }
-  .col-lg-offset-right-5 {
+    }
+    .col-lg-offset-right-5 {
     margin-right: 41.66666667%;
-  }
-  .col-lg-offset-right-4 {
+    }
+    .col-lg-offset-right-4 {
     margin-right: 33.33333333%;
-  }
-  .col-lg-offset-right-3 {
+    }
+    .col-lg-offset-right-3 {
     margin-right: 25%;
-  }
-  .col-lg-offset-right-2 {
+    }
+    .col-lg-offset-right-2 {
     margin-right: 16.66666667%;
-  }
-  .col-lg-offset-right-1 {
+    }
+    .col-lg-offset-right-1 {
     margin-right: 8.33333333%;
-  }
-  .col-lg-offset-right-0 {
+    }
+    .col-lg-offset-right-0 {
     margin-right: 0;
-  }
+    }
 }
 
 /*//------OFFSET-RIGHT------//*/
@@ -1109,7 +1205,7 @@ button.ipo-bt.secundario
         font-size: 20px;
     }
 
-    body .pagina-blog .news li#float-title:after
+    body .pagina-blog .news li.md-float-title:after
     {
         background-size: 100% 100%;
     }
@@ -1157,7 +1253,7 @@ button.ipo-bt.secundario
         padding-right: 0;
     } 
 
-    body .pagina-blog .news li#float-title
+    body .pagina-blog .news li.md-float-title
     {
         margin-bottom: 25px;
     }
@@ -1330,7 +1426,7 @@ button.ipo-bt.secundario
         display: inline-block;
     }
 
-    body .pagina-blog .news li#float-title
+    body .pagina-blog .news li.md-float-title
     {
         margin-bottom: 20px;
     }
@@ -1374,7 +1470,7 @@ button.ipo-bt.secundario
         font-size: 14px;
     }
 
-    body .pagina-blog .news li#float-title
+    body .pagina-blog .news li.md-float-title
     {
         margin-bottom: 30px;
     }
@@ -2062,11 +2158,11 @@ button.ipo-bt.secundario
 
 @media (max-width: 1500px) {
 
-  body .pagina-clinica .sobre #texto,
-  body .pagina-clinica .sobre #desde
-  {
+    body .pagina-clinica .sobre #texto,
+    body .pagina-clinica .sobre #desde
+    {
     padding: 50px;
-  }
+    }
 
 }
 
@@ -2144,15 +2240,15 @@ button.ipo-bt.secundario
 
 @media (max-width: 992px) {
 
-  body .pagina-clinica .sobre #desde h3
-  {
+    body .pagina-clinica .sobre #desde h3
+    {
     font-size: 15px;
-  }
+    }
 
-  body .pagina-clinica .sobre #desde h3 span
-  {
+    body .pagina-clinica .sobre #desde h3 span
+    {
     font-size: 34px;
-  }
+    }
 
 }
 
@@ -2212,7 +2308,7 @@ button.ipo-bt.secundario
     body .pagina-clinica .sobre #desde,
     body .pagina-clinica .sobre #texto
     {
-      padding: 25px 50px;
+        padding: 25px 50px;
     }
 
 }
@@ -2240,9 +2336,9 @@ button.ipo-bt.secundario
     body .pagina-clinica .sobre #desde,
     body .pagina-clinica .sobre #texto
     {
-      width: 70%;
-      margin-left: 13%;
-      padding: 25px;
+        width: 70%;
+        margin-left: 13%;
+        padding: 25px;
     }
 
 }
@@ -2758,27 +2854,27 @@ header.site-header nav #links
 
 header.site-header nav #links #area
 {
-  background: #f36413;
-  margin-right: -25px;
+    background: #f36413;
+    margin-right: -25px;
 }
 
 header.site-header nav #links #area a
 {
-  position: relative;
-  padding-right: 55px;
+    position: relative;
+    padding-right: 55px;
 }
 
 header.site-header nav #links #area a:after
 {
-  display: block;
-  content: '';
-  background: url(img/ipo-icon-area-aluno.png) no-repeat center;
-  width: 26px;
-  height: 21px;
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  margin-top: -10px;
+    display: block;
+    content: '';
+    background: url(img/ipo-icon-area-aluno.png) no-repeat center;
+    width: 26px;
+    height: 21px;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    margin-top: -10px;
 }
 
 
@@ -2787,64 +2883,71 @@ header.site-header nav #links #area a:after
 
 
 
-header.site-header nav #links:not(.hiddden){
-  animation: aniVisible cubic-bezier(0.34, 0, 0, 1) 1s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  animation-fill-mode:forwards; when the spec is finished
+header.site-header nav #links.hiddden.lockd
+{
+    width: 0;
+    opacity: 0;
+    padding: 0;
+}
+
+header.site-header nav #links:not(.hiddden):not(.lockd){
+    animation: aniVisible cubic-bezier(0.34, 0, 0, 1) 1s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; when the spec is finished
 }
 
 @keyframes aniVisible{
-  0% {
+    0% {
     opacity: 0;
     width: 0;
     padding: 0;
-  }
-  50% {
+    }
+    50% {
     opacity: 0;
     width: 0;
     padding: 0;
-  }
-  51% {
+    }
+    51% {
     opacity: 0;
     width: auto;
     padding: 0 25px;
-  }
-  100% {
+    }
+    100% {
     opacity: 1;
     width: auto;
     padding: 0 25px;
-  }
+    }
 }
 
-header.site-header nav .hiddden{
-  animation: aniHidden ease 1s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  animation-fill-mode:forwards; /*when the spec is finished*/
+header.site-header nav .hiddden:not(.lockd){
+    animation: aniHidden ease 1s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; /*when the spec is finished*/
 }
 
 @keyframes aniHidden{
-  0% {
+    0% {
     opacity: 1;
     width: auto;
     padding: 0 25px;
-  }
-  50% {
+    }
+    50% {
     opacity: 0;
     width: auto;
     padding: 0 25px;
-  }
-  51% {
+    }
+    51% {
     opacity: 0;
     width: 0;
     padding: 0;
-  }
-  100% {
+    }
+    100% {
     opacity: 0;
     width: 0;
     padding: 0;
-  }
+    }
 }
 
 
@@ -3013,14 +3116,32 @@ html body .jivo-css-leaf .jivo-bottom-left-square
 {   
     border-top: 40px solid #f7941e;
     border-bottom: 20px solid #1d1d23;
-    background: url(img/ipo-bg-mapa.jpg) no-repeat center top;
+    background: #474756;
+    /*background: url(img/ipo-bg-mapa.jpg) no-repeat center top;*/
+    position: relative;
+}
+
+#map-canvas
+{
+    width: 100%;
+    /*height: 1000px;*/
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .wrap-footer
 {
+    position: relative;
+    z-index: 2;
     margin-top: 253px;
     background: url(img/ipo-bg-cinza-90.png);
-    padding: 66px 0 58px 0;
+    padding: 66px 0 30px 0;
 }
 
 footer
@@ -3059,8 +3180,8 @@ footer address p#map
 
 footer address p .icon-phone
 {
-    width: 22px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
     background: url(img/ipo-icon-phone.png) no-repeat left;
     background-size: contain;
     padding-right: 40px;
@@ -3070,8 +3191,8 @@ footer address p .icon-phone
 
 footer address p .icon-map
 {
-    width: 16px;
-    height: 37px;
+    width: 30px;
+    height: 30px;
     background: url(img/ipo-icon-map.png) no-repeat left top;
     padding-right: 40px;
     display: table-cell;
@@ -3080,9 +3201,19 @@ footer address p .icon-map
 
 footer address p .icon-email
 {
-    width: 24px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     background: url(img/ipo-icon-email.png) no-repeat left;
+    padding-right: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+footer address p .icon-face
+{
+    width: 17px;
+    height: 17px;
+    background: url(img/ipo-icon-face.png) no-repeat left;
     padding-right: 40px;
     display: inline-block;
     vertical-align: middle;
@@ -3157,42 +3288,31 @@ footer form input[type=submit]:focus
 
 
 footer form ::-webkit-input-placeholder {
-   color: #f1f1f1;
-   font: 12px "CenturyGothic-Bold", arial, sans-serif;
-   text-transform: uppercase;
-   background: none;
+     color: #f1f1f1;
+     font: 12px "CenturyGothic-Bold", arial, sans-serif;
+     text-transform: uppercase;
+     background: none;
 }
 
 footer form :-moz-placeholder {
-   color: #f1f1f1;
-   font: 12px "CenturyGothic-Bold", arial, sans-serif;
-   text-transform: uppercase;
-   background: none;
+     color: #f1f1f1;
+     font: 12px "CenturyGothic-Bold", arial, sans-serif;
+     text-transform: uppercase;
+     background: none;
 }
 
 footer form ::-moz-placeholder {
-   color: #f1f1f1;
-   font: 12px "CenturyGothic-Bold", arial, sans-serif;
-   text-transform: uppercase;
-   background: none;
+     color: #f1f1f1;
+     font: 12px "CenturyGothic-Bold", arial, sans-serif;
+     text-transform: uppercase;
+     background: none;
 }
 
 footer form :-ms-input-placeholder {  
-   color: #f1f1f1;
-   font: 12px "CenturyGothic-Bold", arial, sans-serif;
-   text-transform: uppercase;
-   background: none;
-}
-
-footer #map-canvas
-{
-    width: 100%;
-    height: 1000px;
-    padding: 0;
-    position: absolute;
-    overflow: hidden;
-    right: 0;
-    z-index: 4000;
+     color: #f1f1f1;
+     font: 12px "CenturyGothic-Bold", arial, sans-serif;
+     text-transform: uppercase;
+     background: none;
 }
 
 footer #form
@@ -3493,91 +3613,91 @@ footer .fase-01 .box #email i
 
 .pagina-clinica .sobre
 {
-  border-top: 30px solid #f7931e;
-  background: url(img/ipo-bg-a-clinica.jpg) no-repeat center;
-  height: 100vh;
-  position: relative;
-  padding-top: 30px;
+    border-top: 30px solid #f7931e;
+    background: url(img/ipo-bg-a-clinica.jpg) no-repeat center;
+    height: 100vh;
+    position: relative;
+    padding-top: 30px;
 }
 
 .pagina-clinica .row
 {
-  height: 100px;
+    /*height: 100px;*/
 }
 
 .pagina-clinica .align-bot
 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .pagina-clinica .sobre #texto .ipo-linha
 {
-  margin-bottom: 16px;
-  width: 40%;
+    margin-bottom: 16px;
+    width: 40%;
 }
 
 .pagina-clinica .sobre #texto
 {
-  background: white;
-  padding: 105px 65px;
+    background: white;
+    padding: 105px 65px;
 }
 
 .pagina-clinica .sobre #desde
 {
-  background: #25252b;
-  padding: 105px 50px;
-  color: #f9f9fb;
-  text-align: center;
+    background: #25252b;
+    padding: 105px 50px;
+    color: #f9f9fb;
+    text-align: center;
 }
 
 .pagina-clinica .sobre #desde h3
 {
-  border: 1px solid #f9f9fb;
-  font-size: 24px;
-  position: relative;
-  border: 1px solid #f9f9fb;
-  text-align: center;
-  line-height: 1;
-  padding: 42px 27px;
-  display: inline-block;
+    border: 1px solid #f9f9fb;
+    font-size: 24px;
+    position: relative;
+    border: 1px solid #f9f9fb;
+    text-align: center;
+    line-height: 1;
+    padding: 42px 27px;
+    display: inline-block;
 }
 
 .pagina-clinica .sobre #desde h3 span
 {
-  position: relative;
-  font-size: 53px;
-  display: block;
+    position: relative;
+    font-size: 53px;
+    display: block;
 }
 
 .pagina-clinica .sobre #desde h3:before,
 .pagina-clinica .sobre #desde h3:after
 {
-  display: block;
-  content: '';
-  background: #f9f9fb;
-  width: 16px;
-  height: 4px;
-  position: absolute;
-  left: 50%;
-  margin-left: -8px;
+    display: block;
+    content: '';
+    background: #f9f9fb;
+    width: 16px;
+    height: 4px;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
 }
 
 .pagina-clinica .sobre #desde h3:before
 {
-  top: 27px;
+    top: 27px;
 }
 
 .pagina-clinica .sobre #desde h3:after
 {
-  bottom: 27px;
+    bottom: 27px;
 }
 
 .pagina-clinica .sobre #texto p
 {
-  color: #59627a;
+    color: #59627a;
 }
 
 
@@ -4598,7 +4718,7 @@ header.site-header.area-aluno
 
 header.site-header.area-aluno nav
 {
-  background: none;
+    background: none;
 }
 
 header.site-header.area-aluno #wrap-nav
@@ -4916,16 +5036,16 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 
 .pagina-area-aluno #aviso p a
 {
-  white-space: nowrap;
-  color: white;
-  background: #f7931e;
-  padding: 5px 8px;
-  margin: 0 5px;
+    white-space: nowrap;
+    color: white;
+    background: #f7931e;
+    padding: 5px 8px;
+    margin: 0 5px;
 }
 
 .pagina-area-aluno #aviso p a:hover
 {
-  background: #333344;
+    background: #333344;
 }
 
 .pagina-area-aluno .card
@@ -5429,9 +5549,9 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 
 .pagina-confirma-email
 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-  text-align: center;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    text-align: center;
     background: url(img/ipo-bg-tratamentos.jpg) no-repeat fixed;
 }
 
@@ -5458,8 +5578,8 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 .pagina-confirma-email form input[type="submit"],
 .pagina-confirma-email form #success a
 {
-  border: 3px solid #f7931e;
-  margin-top: 30px;
+    border: 3px solid #f7931e;
+    margin-top: 30px;
 }
 
 .pagina-confirma-email form #success,
@@ -5524,15 +5644,6 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     display: block;
 }
 
-.pagina-blog .news li#float-title #wrap
-{
-    background: red;
-    margin: -15px;
-    padding: 15px;
-    padding-top: 0;
-    background: url(img/ipo-msk-img-blog.png) repeat-x bottom left;
-}
-
 .pagina-blog .news li a:focus h2,
 .pagina-blog .news li a:hover h2
 {
@@ -5566,66 +5677,23 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     font-size: 20px;
 }
 
-.pagina-blog .news .news-sm > li,
-.pagina-blog .news .news-sp > li,
-.pagina-blog .news li#float-title
+.pagina-blog .news #destaques .newline:after
+{
+    content: '';
+    display: block;
+    margin: 20px 0; 
+    float: left;
+    width: 100%;
+}
+
+.pagina-blog .news .news-sm > li
 {
     margin-bottom: 30px;
 }
 
-.pagina-blog .news li#float-title,
-.pagina-blog .news li#float-title img
+.pagina-blog .news .news-sp > li
 {
-    display: block;
-    position: relative;
-}
-
-.pagina-blog .news li#float-title header #wrap
-{
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    z-index: 10;
-}
-
-.pagina-blog .news li#float-title time
-{
-    margin: 0;
-}
-
-.pagina-blog .news li#float-title:after,
-.pagina-blog .news li#float-title:before
-{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-size: 100% 60%;
-    z-index: 8;
-}
-
-.pagina-blog .news li#float-title:before
-{
-    background: url(img/space.gif);
-    -webkit-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -moz-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -o-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    -ms-transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-    transition: 0.4s all cubic-bezier(0.34, 0, 0, 1);
-}
-
-.pagina-blog .news li#float-title:hover:before
-{
-    background: url(img/grey-40.png);
-}
-
-.pagina-blog .news li#float-title a:hover h2
-{
-    color: white;
+    margin-bottom: 10px;
 }
 
 .pagina-blog .news li a:hover h2
@@ -5636,6 +5704,13 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 .pagina-blog .news li img
 {
     width: 100%;
+    border-bottom: 5px solid transparent;
+}
+
+.pagina-blog .news li:hover img
+{
+    width: 100%;
+    border-bottom-color: #f7931e;
 }
 
 .pagina-blog .news li time
@@ -5651,21 +5726,82 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 
 
 
-/*----------------------POST----------------------*/
+/*----------------------BLOG POST----------------------*/
+
+.pagina-post .hero img
+{
+    width: 100%;
+    margin: 0;
+}
+
+.pagina-post .head
+{
+    margin-top: 60px;
+    padding-top: 0;
+}
+
+.pagina-post .head h2
+{
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+.pagina-post .head time
+{
+    margin-bottom: 10px;
+    display: block;
+    color: #7b85a0;
+    font-size: 12px;
+}
+
+.pagina-post .head time .ico-time
+{
+    display: inline-block;
+    background: url(img/ipo-icon-time-post.png) no-repeat;
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+    margin-left: 4px;
+    vertical-align: baseline;
+}
+
+.pagina-post,
+.pagina-post p
+{
+    line-height: 1.5;
+}
+
+.pagina-post
+{
+    margin-bottom: 100px;
+}
+
+.pagina-post p
+{
+    margin-bottom: 30px;
+}
 
 .pagina-post blockquote
 {
     border: none;
     font-style: italic;
     width: 80%;
-    margin-left: 5%;
-    font-size: 16px;
+    margin: 30px 5% 30px 0;
+    position: relative;
 }
 
 .pagina-post blockquote p
 {
+    margin: 0 0 5px;
+    padding: 0;
+}
+
+.pagina-post blockquote p,
+.pagina-post blockquote
+{
     color: #999;
-    font-size: 16px;
+    font-size: 96%;
+    line-height: 1.5;
 }
 
 .pagina-post blockquote:after,
@@ -5677,12 +5813,15 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     font-size: 40px;
     color: #f7931e;
     line-height: 0;
-    margin: 0;
+    margin: 0 0 -20px -25px;
 }
 
 .pagina-post blockquote:after
 {
-    margin-top: 30px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 10px;
 }
 
 .pagina-post ul,
@@ -5714,6 +5853,17 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     color: #f7931e;
 }
 
+.pagina-post h1 a,
+.pagina-post h2 a,
+.pagina-post h3 a,
+.pagina-post h4 a,
+.pagina-post h5 a,
+.pagina-post h6 a
+{
+    color: #F36412;
+    text-decoration: underline;
+}
+
 .pagina-post li h1,
 .pagina-post li h2,
 .pagina-post li h3,
@@ -5724,8 +5874,82 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     color: #a7a7af;
 }
 
-/*----------------------POST----------------------*/
+.pagina-post img,
+.pagina-post img.aligncenter
+{
+    display: block;
+    margin: 30px auto;
+}
 
+.pagina-post img.alignright,
+.pagina-post img.alignleft
+{
+    margin: 20px 30px;
+}
+
+.pagina-post img.alignright
+{
+    float: right;
+    margin-right: -12.3%;
+}
+
+.pagina-post img.alignleft
+{
+    float: left;
+    margin-left: -12.3%;
+}
+
+.pagina-post .wrap-bt-voltar
+{
+    text-align: center;
+}
+
+.pagina-post .bt-voltar
+{
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 18px;
+}
+
+/*----------------------BLOG POST----------------------*/
+
+
+
+
+
+/*----------------------DENTISTAS----------------------*/
+
+.pagina-dentistas .instrutores ul
+{
+    margin-top: 0;
+}
+
+.pagina-dentistas .instrutores ul li .redes-sociais a
+{
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    text-indent: 999999px;
+    padding-right: 34px;
+}
+
+.pagina-dentistas .instrutores ul li .redes-sociais .facebook
+{
+    background: url(img/ipo-icon-facebook.png) no-repeat left center;
+}
+
+.pagina-dentistas .instrutores ul li .redes-sociais .google-plus
+{
+    background: url(img/ipo-icon-google-plus.png) no-repeat left center; 
+    padding-right: 28px;
+}
+
+.pagina-dentistas .instrutores ul li .redes-sociais .instagram
+{
+    background: url(img/ipo-icon-instagram.png) no-repeat left center;
+}
+
+/*----------------------DENTISTAS----------------------*/
 
 
 

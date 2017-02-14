@@ -14,6 +14,16 @@ $(document).ready(function() {
 
 		dimensionaGaleriaEscola();
 
+		if( $( window ).scrollTop() > 5 )
+		{
+			$('.site-header').height(96);
+		}
+		else
+		{
+			console.log(siteHeaderH);
+			$('.site-header').height(siteHeaderH);
+		}
+
 	});
 	$( window ).trigger('scroll');
 
@@ -483,6 +493,22 @@ $('form.confirma-email input[type="submit"]').bind('click',
 
 });
 
+
+
+
+
+
+
+
+
+var siteHeaderH = $('.site-header').height();
+
+
+
+
+
+
+
 function contatoOk (data)
 {
 	console.log($(this));
@@ -579,39 +605,6 @@ function pluralize (s, p, n)
 
 function initializeMap()
 {
-
-/*
-	var myLatLng = new google.maps.LatLng( -15.7868812,-47.88424 );
-
-	var mapCanvas = document.getElementById( 'map-canvas' );
-	var mapOptions = {
-		center: myLatLng,
-		zoom: 16,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		backgroundColor: '7030a0',
-		scrollwheel: false
-	}
-	var map = new google.maps.Map( mapCanvas, mapOptions );
-
-	var marker = new google.maps.Marker({
-	    position: myLatLng,
-	    map: map,
-	    title:"Hello World!"
-	});
-		$('header').hide();
-		$('#page-contato').css({
-			'margin-top': '-103px'
-		})
-
-		$('#map').css({
-			'height': '1080px'
-		})
-
-		$('html, body').css({
-			overflow: 'hidden'
-		})
-
-*/
 		// var myLatLng = new google.maps.LatLng( -15.7868812,-47.88424 );
 		var myLatLng = {lat: -15.7868812, lng: -47.88424};
 
@@ -622,8 +615,13 @@ function initializeMap()
 		  {
 		    "elementType": "labels.text",
 		    "stylers": [
-		      { "visibility": "off" },
-		      { "color": "#ed2f80" }
+		      { "visibility": "on" },
+		      { "color": "#8f8f9f" }
+		    ]
+		  },{
+		    "elementType": "labels.text.stroke",
+		    "stylers": [
+		      { "color": "#ffffff" }
 		    ]
 		  },{
 		    "featureType": "landscape",
@@ -656,12 +654,24 @@ function initializeMap()
 		      { "color": "#e4cdb2" }
 		    ]
 		  },{
+		    "featureType": "poi",
+		    "elementType": "labels.text",
+		    "stylers": [
+		      { "color": "#8f8f9f" }
+		    ]
+		  },{
+		    "featureType": "poi",
+		    "elementType": "labels.text.stroke",
+		    "stylers": [
+		      { "color": "#ffffff" }
+		    ]
+		  },{
 		  }
 		]
 
 		var mapOptions = {
 			center: myLatLng,
-			zoom: 14,
+			zoom: 15,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			backgroundColor: 'b0b0b2',
 			scrollwheel: false,
@@ -681,6 +691,7 @@ function initializeMap()
 		    icon: image
 		});
 
+		map.panBy(0, 150);
 }
 
 function showInAnimation () 
@@ -981,6 +992,8 @@ function gravaTipoSite (tipo)
 
 function trocaMenuPara(e)
 {
+	$('header nav #links').removeClass('lockd');
+	
 	if(e == 'clinica')
 	{
 		$('header nav #versao-menu #link-clinica').removeClass('esconde');

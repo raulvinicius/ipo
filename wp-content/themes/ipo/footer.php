@@ -23,19 +23,29 @@
 
                     <section class="container-fluid mapa-footer">
 
-                        <!-- <div class="col-md-12" id="map-canvas"></div> -->
+                        <div class="col-md-12" id="map-canvas"></div>
 
                         <div class="row wrap-footer">
                             
-                            <footer class="container">
+                            <div class="container">
                                 <div class="row">
 
                                     <div class="col-md-4 col-sm-offset-0 col-sm-6 col-xs-offset-2 col-xs-8">
                                         <img class="logo-footer" src="<?php echo bloginfo('template_url') ?>/img/ipo-logo-footer.png"/>
                                         <address>
-                                            <p id="map"><i class="icon-map"></i><span>SCN Quadra 2 Bloco D, Ed. Liberty Mall, Torre B, Sala 923, Brasília-DF, CEP 70712-904</span></p>
+                                            <p id="map"><i class="icon-map"></i><span>SCN Quadra 2 Bloco D, Ed. Liberty Mall, Torre B, Sala 923, Brasília-DF, <span class="no-wrap">CEP 70712-904</span></span></p>
                                             <p><i class="icon-phone"></i>+55 61 3326 1131 / 99933 1131</p>
                                             <p><i class="icon-email"></i>contato@plasticaoclusal.com.br</p>
+                                                <p>
+                                                    <i class="icon-face"></i>
+                                                    <a href="https://www.facebook.com/plasticaoclusal/" target="_blank">@plasticaoclusal</a>
+                                                </p>
+                                                <p>
+                                                    <i class="icon-face"></i>
+                                                    <a href="https://www.facebook.com/ipobsb" target="_blank">@ipobsb</a>
+                                                </p>
+                                            <div>
+                                            </div>
                                         </address>
                                     </div>
 
@@ -134,7 +144,7 @@
                                     </div>
 
                                 </div>
-                            </footer>
+                            </div>
 
                         </div>
                     </section>
@@ -605,18 +615,16 @@
         <script src="<?php bloginfo('template_url') ?>/js/jquery.cookie.js"></script>
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <!-- 
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-         -->
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-91541950-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
              
         <!-- BEGIN JIVOSITE CODE {literal} -->
         <script type='text/javascript'>

@@ -9,23 +9,21 @@
 					<button id="seta-esq" class="layer seta esq ani-04" data-depth="0.1"></button>
 					<button id="seta-dir" class="layer seta dir ani-04" data-depth="0.1"></button>
 
+					<?php $aClinicaID = get_page_by_title( l('A Clínica', 'Our Clinic', FALSE))->ID ?>
+
 					<ul>
 
-						<li data-i="0" class="highlight">
-							<figure>
-								<img src="<?php echo bloginfo('template_url') ?>/img/ipo-salas-clinica.jpg">
-							</figure>
-						</li>
-						<li data-i="1" class="highlight">
-							<figure>
-								<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-clinica.jpg">
-							</figure>
-						</li>
-						<li data-i="2">
-							<figure>
-								<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-2-clinica.jpg">
-							</figure>
-						</li>
+						<?php $fotos = get_field('a-clinica-fotos', $aClinicaID); ?>
+
+						<?php for ($i=0; $i<count($fotos); $i++):  ?>
+
+							<li data-i="<?php echo $i ?>" class="highlight">
+								<figure>
+									<img src="<?php echo $fotos[$i]['url'] ?>">
+								</figure>
+							</li>
+
+						<?php endfor; ?>
 
 					</ul>
 
@@ -50,11 +48,10 @@
 									'24 hours <span>emergency</span>'
 								) ?>
 							</h2>
-							<p><?php l(
-									'Desde o socorro para dor de dente, fraturas de dente até coroas soltas, se consulte a qualquer hora pelo <strong>61 99933 1131 (whatsap)</strong> ou pelo nosso <strong>CHAT</strong>', 
-									'From a toothache relief to tooth fractures or loose crowns, consult at any time by Whatsapp <strong>+55 61 99933 1131</strong> or by <strong>CHAT</strong>'
-								) ?></p>
-						</div><div class="wrap-button">
+
+							<p><?php echo get_field('urgencia24horas') ?></p>
+
+							</div><div class="wrap-button">
 							<button class="ipo-bt white-bd hover-orange-bd p-20"  onclick="jivo_api.open();"><?php l('Se consulte agora mesmo', 'See now') ?></button>
 						</div>
 
@@ -123,10 +120,7 @@
 						<div id="texto" class="col-lg-3 col-lg-offset-6 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
 							<h3 class="title orange"><?php l('A Clínica', 'Our Clinic') ?></h3>
 							<div class="ipo-linha gray"></div>
-							<p ><?php l(
-									'Desde o início de nossas atividades, em 1986, a Clínica IPO:PALMIERI vem se dedicando a reabilitação e manutenção da mastigação e do sorriso de seus clientes', 
-									'Since the beginning of our activities, in 1986, the IPO:PALMIERI Practice focus has been rehabilitation and maintenance of function and to the smile of the clients'
-								) ?></p>
+								<?php echo get_field('a-clinica-sobre', $aClinicaID); ?>
 						</div>
 						<div id="desde" class="col-lg-3 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
 							<h3><?php l('Desde', 'Since') ?> <span>1986</span></h3>

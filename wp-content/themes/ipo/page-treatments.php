@@ -6,13 +6,12 @@
 	        <div class="row">
 
 	            <div class="title-tratamentos head col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-	                <h2 class="title orange"><?php l('Descubra o que podemos fazer por você', 'Find out what we can do for you') ?></h2>
+	                <h2 class="title orange">
+	                	<?php echo get_field('tratamentos-titulo') ?>
+	                </h2>
 	                <div class="ipo-linha gray center"></div>
 	                <p>
-	                	<?php l(
-	                		'Nossos dentistas dominam diversas técnicas, todas voltadas para melhorar sua saúde, conforto e, por que não, a beleza do seu sorriso', 
-	                		'Our dentists have mastered several techniques, all aiming to improve your health, comfort and also the beauty of your smile'
-	                	) ?>
+	                	<?php echo get_field('tratamentos-chamada') ?>
 	                </p>
 	            </div>
 	            

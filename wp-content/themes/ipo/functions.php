@@ -495,10 +495,13 @@ function bs_materiais_table_filtering() {
 if ( function_exists( 'add_image_size' ) ) 
 {
 	add_image_size( 'foto-instrutor', 257, 257, true );
+	add_image_size( 'hero-post', 1170, 440, true );
 	add_image_size( 'blog-g', 555, 440, true );
 	add_image_size( 'blog-sm', 555, 205, true );
 	add_image_size( 'blog-m', 458, 263, true );
 	add_image_size( 'blog-p', 263, 184, true );
+	add_image_size( 'face-card', 800, 420, true );
+	add_image_size( 'twitter-card', 120, 120, true ); //Google+ também
 }
 
 pll_register_string('Título formulário de inscrição', 'Inscrição para', 'Form' );
@@ -506,15 +509,23 @@ pll_register_string('Título formulário de inscrição', 'Inscrição para', 'F
 $meses = array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
 $months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
-function l( $pt, $en)
+function l( $pt, $en, $e = TRUE)
 {
 	if (pll_current_language() == 'pt') 
 	{
-		echo $pt;
+		if($e) :
+			echo $pt;
+		else :
+			return $pt;
+		endif;
 	}
 	else 
 	{
-		echo $en;
+		if($e) :
+			echo $en;
+		else :
+			return $en;
+		endif;
 	}
 }
 
@@ -536,6 +547,11 @@ function change_default_title( $title ){
     $screen = get_current_screen();
 
 	// ALTERAR O PLACEHOLDER DO TITLE FIELD
+    if ( 'dentistas' == $screen->post_type )
+    {
+        $title = 'Nome do Dentista';
+    }
+
     if ( 'tratamentos' == $screen->post_type )
     {
         $title = 'Nome do Tratamento';
@@ -687,4 +703,19 @@ function enDay ($num)
 
 	return $num . '<span>' . $ord . '</span>';
 
+}
+
+function doExerpt ($txt, $max)
+{
+	if( strlen( wp_strip_all_tags( $txt ) ) > $max )
+	{
+		$txt = substr( wp_strip_all_tags( $txt ), 0, $max );
+		$txt = substr( $txt, 0, strrpos( $txt, ' ' ) );
+		$noWrapPos = strrpos( $txt, ' ' );
+		return substr($txt, 0, $noWrapPos) . ' <span id="no-wrap">' . substr($txt, $noWrapPos) . '...</span>';
+	}
+	else
+	{
+		return $txt;
+	}
 }

@@ -6,10 +6,9 @@
 			<div class="row">
 				<h2 class="title orange col-md-6 col-md-offset-3"><?php l('A Clínica', 'Our Clinic') ?></h2>
 				<div class="ipo-linha gray center"></div>
-				<p class="col-md-8 col-md-offset-2"><?php l(
-						'Desde o início de nossas atividades, em 1986, a Clínica IPO:PALMIERI vem se dedicando a reabilitação e manutenção da mastigação e do sorriso de seus clientes', 
-						'Since the beginning of our activities, in 1986, the IPO:PALMIERI Practice focus has been rehabilitation and maintenance of function and to the smile of the clients'
-					) ?></p>
+				<div class="col-md-8 col-md-offset-2">
+					<?php echo get_field('a-clinica-sobre'); ?>
+				</div>
 			</div>
 		</section>
 
@@ -19,31 +18,18 @@
 				<button id="seta-dir" class="layer seta dir ani-04" data-depth="0.1"></button>
 
 				<ul>
+					<?php $fotos = get_field('a-clinica-fotos'); ?>
 
-					<li data-i="0" class="highlight">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-recepcao-clinica.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Nossa recepção', 'Our reception') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="1">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-salas-clinica.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Consultórios', 'Dental offices') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="2" class="highlight">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-clinica.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Consultório', 'Dental office') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="3">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-2-clinica.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Consultório', 'Dental office') ?></span></figcaption>
-						</figure>
-					</li>
+					<?php for ($i=0; $i<count($fotos); $i++):  ?>
+
+						<li data-i="<?php echo $i ?>" class="highlight">
+							<figure>
+								<img src="<?php echo $fotos[$i]['url'] ?>">
+								<figcaption class="col-md-2 col-xs-3"><span><?php echo $fotos[$i]['caption'] ?></span></figcaption>
+							</figure>
+						</li>
+
+					<?php endfor; ?>
 
 				</ul>
 
