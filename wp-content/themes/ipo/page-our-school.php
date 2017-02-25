@@ -4,12 +4,13 @@
 
 		<section class="container head">
 			<div class="row">
-				<h2 class="title orange col-md-6 col-md-offset-3"><?php l('A Escola', 'Our School') ?></h2>
+				<h2 class="title orange col-md-6 col-md-offset-3">
+					<?php echo get_field('a-escola-titulo') ?>
+				</h2>
 				<div class="ipo-linha gray center"></div>
-				<p class="col-md-8 col-md-offset-2"><?php l(
-						'O Instituto Plástica Oclusal é a materialização de um sonho de 30 anos: reunir atenção odontológica de vanguarda com formação profissional continuada', 
-						'The Occlusal Plastic Institute is the materialization of a 30-years dream: to gather forefront dental care with continuous professional education'
-					) ?></p>
+				<p class="col-md-8 col-md-offset-2">
+					<?php echo get_field('a-escola-chamada') ?>
+				</p>
 			</div>
 		</section>
 
@@ -20,30 +21,18 @@
 
 				<ul>
 
-					<li data-i="0" class="highlight">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-escola.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Sala de aula', 'Class room') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="1">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-mesas-escola.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Mesas', 'Student tables') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="2" class="highlight">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-sala-2-escola.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Sala de aula', 'Class room') ?></span></figcaption>
-						</figure>
-					</li>
-					<li data-i="3">
-						<figure>
-							<img src="<?php echo bloginfo('template_url') ?>/img/ipo-mesas-2-escola.jpg">
-							<figcaption class="col-md-2 col-xs-3"><span><?php l('Mesas', 'Student tables') ?></span></figcaption>
-						</figure>
-					</li>
+					<?php $fotos = get_field('a-escola-fotos'); ?>
+
+					<?php for ($i=0; $i<count($fotos); $i++):  ?>
+
+						<li data-i="<?php echo $i ?>" class="highlight">
+							<figure>
+								<img src="<?php echo $fotos[$i]['url'] ?>">
+								<figcaption class="col-md-2 col-xs-3"><span><?php echo $fotos[$i]['caption'] ?></span></figcaption>
+							</figure>
+						</li>
+
+					<?php endfor; ?>
 
 				</ul>
 

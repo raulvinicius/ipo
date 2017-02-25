@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
-
 	$( window ).scroll(function() 
 	{
+
+
 		setTimeout(showInAnimation,400);
 		toggleFixedMenu();
 		igualaAlturaBlocoCurso();
@@ -20,9 +21,12 @@ $(document).ready(function() {
 		}
 		else
 		{
-			console.log(siteHeaderH);
 			$('.site-header').height(siteHeaderH);
 		}
+
+		//TRATAMENTO
+		if ( $('.pagina-tratamento').length > 0 )
+			flutuaBtnMarcar();
 
 	});
 	$( window ).trigger('scroll');
@@ -33,6 +37,15 @@ $(document).ready(function() {
 
 		swapImages();
 
+		if( $('.pagina-tratamento .descricao #tgt-descricao').length > 0 )
+		{
+			if( hInicialNome == undefined )
+			{
+				hInicialNome = $('.pagina-tratamento .nome').outerHeight();
+			}
+			nivelaAlturaNomeTratamento();
+		}
+
 		if( $('.pagina-escola .cursos').length > 0 )
 		{
 			var arH = [];
@@ -42,9 +55,6 @@ $(document).ready(function() {
 			});
 			var biggestH = Math.max.apply(Math, arH);
 			$('.pagina-escola .cursos').height( Math.max( $(window).innerHeight(), biggestH + 50 ) )
-			console.log( $(window).innerHeight() );
-			console.log( $('.pagina-escola .cursos').height() );
-			console.log( biggestH );
 		}
 
 		igualaAlturaBlocoCurso();
@@ -94,6 +104,11 @@ $(document).ready(function() {
 			})
 			
 		};
+
+		//TRATAMENTO
+		if ( $('.pagina-tratamento').length > 0 )
+			flutuaBtnMarcar();
+
 
 	});
 	$( window ).trigger('resize');
@@ -157,6 +172,35 @@ $(document).ready(function() {
 
 
 
+
+
+
+	//-----------------TRATAMENTO-----------------//
+
+	if( $('.pagina-tratamento .descricao #tgt-descricao').length > 0 )
+	{
+		if(hInicialNome == undefined)
+		{
+			hInicialNome = $('.pagina-tratamento .nome').outerHeight()
+		}
+
+		tiAlturaNomeTratamento = setInterval(function()
+		{
+
+			nivelaAlturaNomeTratamento();
+
+		}, 200);
+
+	}
+
+	//-----------------TRATAMENTO-----------------//
+
+
+
+
+
+
+
 	// TEMP
 	if( $('section.home').length > 0 )
 	{
@@ -172,7 +216,6 @@ $(document).ready(function() {
 		var $obj = $(this);
 
 		$(window).scroll(function() {
-			console.log('indo')
 			var yPos = -($(window).scrollTop() / $obj.data('speed')); 
 	 
 			var bgpos = '50% '+ yPos + 'px';
@@ -511,8 +554,10 @@ var siteHeaderH = $('.site-header').height();
 
 function contatoOk (data)
 {
+/*
 	console.log($(this));
 	console.log(data);
+*/
 
 	$('#contato #process').hide();
 	$('#contato #aviso-campos').hide();
@@ -535,8 +580,10 @@ function contatoOk (data)
 
 function inscricaoOk (data)
 {
+	/*
 	console.log($(this));
 	console.log(data);
+	*/
 
 	$('form.inscricao #process').hide();
 
@@ -555,8 +602,10 @@ function inscricaoOk (data)
 
 function confirmacaoOk (data)
 {
+	/*
 	console.log($(this));
 	console.log(data);
+	*/
 
 	$('form.confirma-email #process').hide();
 
@@ -1021,12 +1070,10 @@ function dimensionaGaleriaEscola()
 			arH.push( $(this).height() );
 		});
 		menorH = Math.min.apply(Math, arH);
-		console.log( menorH );
 
 
 		$('.pagina-a-escola .galeria').outerHeight( $(window).innerHeight() - $('.pagina-a-escola .galeria').offset().top + $(window).scrollTop() )
 		$('.pagina-a-escola .galeria').css('max-height', ( Math.min( $(window).innerHeight() - $('header').height(), menorH ) )+'px')
-		console.log($('.pagina-a-escola .galeria').css('max-height') );
 	}
 
 }
@@ -1053,7 +1100,6 @@ function igualaAltura (arElementos, minW)
 
 function enviaDuvida(email)
 {
-	console.log(email);
 }
 
 function swapImages () 
@@ -1093,4 +1139,57 @@ function checkBreakpoint ()
 		return 'lg';
 	}
 
+}
+
+var hInicialNome;
+var tiAlturaNomeTratamento;
+function nivelaAlturaNomeTratamento ()
+{
+	if( $('.pagina-tratamento .descricao').outerHeight() > hInicialNome )
+	{
+		$('.pagina-tratamento .nome').outerHeight( $('.pagina-tratamento .descricao').outerHeight() );
+	}
+	else
+	{
+		$('.pagina-tratamento .nome').outerHeight( hInicialNome );
+	}
+	clearInterval(tiAlturaNomeTratamento);
+}
+
+var tBtnTratamento;
+var maxWindowTopTratamento;
+function flutuaBtnMarcar()
+{
+	tBtnTratamento = $(window).height() + $(window).scrollTop() - ( $('.wrap-button').outerHeight() * 2 ) - 15;
+	maxWindowTopTratamento = ( parseInt($('.pagina.pagina-tratamento').css('margin-top')) + $('.pagina-tratamento .nome').outerHeight() - $(window).innerHeight() ) - 5;
+	if($(window).scrollTop() < 184)
+	{
+		$('.pagina-tratamento .wrap-button').css({
+			position: 'relative',
+			left: 'auto',
+			bottom: 'auto',
+			top: 'auto'
+		});
+	}
+	else 
+	{
+		if ( $(window).scrollTop() > maxWindowTopTratamento )
+		{
+			$('.pagina-tratamento .wrap-button').css({
+				position: 'absolute',
+				left: '13px',
+				bottom: '30px',
+				top: 'auto'
+			});
+		}
+		else
+		{
+			$('.pagina-tratamento .wrap-button').css({
+				position: 'absolute',
+				left: '13px',
+				bottom: 'auto',
+				top: tBtnTratamento + 'px'
+			});
+		}
+	}
 }

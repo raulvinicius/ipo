@@ -3780,7 +3780,7 @@ footer .fase-01 .box #email i
 
 .bloco-instrutores
 {
-    background: url(img/ipo-bg-escuro-instrutores.jpg) repeat-y center top #25252b;
+    background: url(img/ipo-bg-escuro-instrutores.jpg) repeat-y center top #15151b;
     padding-top: 100px;
     padding-bottom: 90px;
 }
@@ -5454,11 +5454,10 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 .pagina-tratamentos .tipos-tratamentos figure
 {
     position: relative;
-    display: none;
+    /*display: none;*/
 }
 
-.pagina-tratamentos .tipos-tratamentos figure .filtro-depois,
-.pagina-tratamentos .tipos-tratamentos figure .filtro-antes
+.pagina-tratamentos .tipos-tratamentos figure .filtro-depois
 {
     background: url(img/ipo-filtro-depois.png);
     position: absolute;
@@ -5468,21 +5467,10 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     bottom: 0;
 }
 
-.pagina-tratamentos .tipos-tratamentos figure .filtro-antes
-{
-    background: url(img/ipo-filtro-antes.png);
-}
-
 .pagina-tratamentos .tipos-tratamentos figure img
 {
     width: 100%;
     margin: 0 auto;
-}
-
-.pagina-tratamentos .tipos-tratamentos .antes
-{
-    margin-top: 7px;
-    margin-bottom: 30px;
 }
 
 .pagina-tratamentos .tipos-tratamentos figure figcaption
@@ -5530,15 +5518,73 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     margin: 0 -10px 60px -10px;
 }
 
+.pagina-tratamentos .tipos-tratamentos ul li .wrap-button a,
 .pagina-tratamentos .tipos-tratamentos ul li .wrap-button button
 {
     width: 100%;
     font-size: 16px;
     padding: 15px 0;
+    width: 100%;
 }
 
 
 /*----------------------TRATAMENTOS----------------------*/
+
+
+
+
+
+
+/*----------------------TRATAMENTO----------------------*/
+
+
+.pagina-tratamento .nome
+{
+    background: #334;
+    padding-top: 120px;
+    padding-bottom: 125px;
+}
+
+.pagina-tratamento .nome h2
+{
+    font-size: 80px;
+    color: white;
+}
+
+.pagina-tratamento .nome ul
+{
+    margin-top: 40px;
+}
+
+.pagina-tratamento .nome ul li
+{
+    margin-top: 10px;
+    padding: 0 10px 0 0;
+}
+
+.pagina-tratamento .nome ul li img
+{
+    width: 100%;
+}
+
+.pagina-tratamento .nome button
+{
+    margin-top: 40px;
+}
+
+.pagina-tratamento .descricao
+{
+    padding-top: 156px;
+    padding-bottom: 125px;
+}
+
+.pagina-tratamento .descricao .ipo-linha
+{
+    margin-bottom: 30px;
+}
+
+
+/*----------------------TRATAMENTO----------------------*/
 
 
 

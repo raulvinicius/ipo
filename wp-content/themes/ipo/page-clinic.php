@@ -129,7 +129,18 @@
 				</div>
 			</section>
 
-			<?php //include 'bloco-dentistas.php'; ?>
+			<?php 
+
+				$dentistas = get_post_by_type('dentistas');
+
+				if( count( $dentistas->posts ) > 0 ) :
+				?>
+
+					<?php include 'bloco-dentistas.php'; ?>
+
+				<?php
+				endif;
+			?>
 
 		</span>
 

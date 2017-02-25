@@ -4,9 +4,13 @@
 
 		<section class="container head">
 			<div class="row">
-				<h2 class="title orange col-md-6 col-md-offset-3"><?php l('Conhecimento de Vanguarda', 'Forefront of knowledge') ?></h2>
+				<h2 class="title orange col-md-6 col-md-offset-3">
+					<?php echo get_field('instrutores-titulo') ?>
+				</h2>
 				<div class="ipo-linha gray center"></div>
-				<p class="col-md-8 col-md-offset-2"><?php l('Nosso curso conta com professores fixos e professores convidados. Procuramos, a cada ano, diferenciar estes professores convidados de maneira a buscar técnicas e opiniões válidas para nosso método', 'Our courses have fixed teachers and invited teachers. Each year, we try to differentiate these invited teachers so as to seek valid techniques and opinions for our method') ?></p>
+				<p class="col-md-8 col-md-offset-2">
+					<?php echo get_field('instrutores-chamada') ?>
+				</p>
 			</div>
 		</section>
 
@@ -21,7 +25,16 @@
 
 						<?php 
 
-							$my_query = get_post_by_type('instrutores', 'ASC');
+							$args = array(
+							    'meta_query' => array(
+							        array(
+							            'key' => 'fixo',
+							            'compare' => '==',
+							            'value' => '1'
+							        )
+							    )
+							);
+							$my_query = get_post_by_type('instrutores', 'ASC', -1, NULL, $args);
 
 							$i = 0;
 

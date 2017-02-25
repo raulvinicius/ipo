@@ -122,10 +122,6 @@
 
                 $pType = get_post_type( $post->ID );
 
-                echo "<!--";
-                var_dump($post->post_name);
-                echo "-->";
-
 
                 if ($pType == 'cursos')
                 {
@@ -527,7 +523,7 @@
                                         if ( $nPosts > 0 ): ?>
 
                                             <li class="ani-04">
-                                                <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/dentistas', 'clinic/dentists') ?>">
+                                                <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/dentistas', 'clinic/our-dentists') ?>">
                                                     <div id="wrap">
                                                         <?php l('Dentistas', 'Our Dentists') ?>
                                                     </div>
@@ -548,7 +544,7 @@
                                         ?>
                                     
                                         <li class="ani-04">
-                                            <a class="ani-04" onclick="gravaTipoSite('escola')" href="<?php bloginfo('url') ?>/<?php l('escola/blog', 'school/blog') ?>">
+                                            <a class="ani-04" onclick="gravaTipoSite('clinica')" href="<?php bloginfo('url') ?>/<?php l('clinica/blog', 'clinic/blog') ?>">
                                                 <div id="wrap">
                                                     Blog
                                                 </div>

@@ -28,38 +28,37 @@
 
 						$my_query = get_post_by_type('tratamentos');
 
-						$i = 0;
-
 						if( $my_query->have_posts() ):
 
 		   					while ($my_query->have_posts()) : $my_query->the_post(); 
 
 		   						$descricao = get_field('descricao_curta');
 		   						$icone = get_field('icone');
+		   						$capa = get_field('capa');
+		   						$capa = $capa['sizes']['capa-tratamento'];
 		   						$icone = $icone['sizes']['large'];
-
-		   						if( $i <= 3) :
-
 									?>
 
 									<li class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6 col-md-4">
 									    <div class="bg-li">
 									        
-									        <figure class="depois">
-									            <div class="filtro-depois"></div>
-									            <img src="img/ipo-tratamentos-reabilitacao-depois.jpg" />
-									        </figure>
 
-									        <figure class="antes">
-									            <div class="filtro-antes"></div>
-									            <img src="img/ipo-tratamentos-reabilitacao-antes.jpg" />
-									            <figcaption>Antes</figcaption>
-									        </figure>
+									    	<?php if (isset($capa)): ?>
+										        <figure class="depois">
+										            <div class="filtro-depois"></div>
+										            <img src="<?php echo $capa ?>" />
+										        </figure>
+									    	<?php endif ?>
+									    		
 
 									        <h3 class="title orange"><?php the_title() ?></h4>
 									        <p><?php echo $descricao ?></p>
 									        <div class="wrap-button">
-									            <button class="ipo-bt white-bd" onclick="jivo_api.open();" ><?php l('Marcar Agora', 'Make an appointment') ?></button>
+									            <a href="<?php echo get_permalink($my_query->post->ID) ?>" class="ipo-bt white-bd"><?php l('Saber mais', 'See more') ?></a>
+									            <!-- 
+									            <button class="ipo-bt white-bd" onclick="jivo_api.open();" ><?php //l('Marcar Agora', 'Make an appointment') ?></button>
+									             -->
+									            
 									        </div>
 									    </div>
 									</li>
@@ -67,9 +66,6 @@
 
 									<?php
 
-								endif;
-
-								$i++;
 
 							endwhile;
 

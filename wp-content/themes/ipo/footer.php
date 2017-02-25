@@ -662,6 +662,9 @@
 
         </script>
         <!-- {/literal} END JIVOSITE CODE -->
+        <!-- 
+        <?php wp_footer() ?> 
+         -->
 
     </body>
 

@@ -79,7 +79,28 @@
 
 		</section>
 
-		<?php include 'bloco-instrutores.php'; ?>
+		<?php 
+
+		$args = array(
+		    'meta_query' => array(
+		        array(
+		            'key' => 'fixo',
+		            'compare' => '==',
+		            'value' => '1'
+		        )
+		    )
+		);
+		$my_query = get_post_by_type('instrutores', 'ASC', -1, NULL, $args);
+
+		if ( count( $my_query->posts ) > 0 ) :
+
+			include 'bloco-instrutores.php'; 
+		
+		endif;
+
+		?>
+
+		<?php wp_reset_query(); ?>
 
 		<section class="a-escola container-fluid bg-parallax" data-speed="10">
 			<div class="container">
@@ -87,13 +108,10 @@
 				<h2 class="col-md-10 col-md-offset-1 title orange"><?php l('Conheça nossa escola', 'Meet our facilities') ?></h2>
 				<div class="ipo-linha gray center"></div>
 				<p class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-					<?php l(
-						'Nossas instalações foram pensadas para gerar conforto e melhorar a concentração e o aprendizado dos nossos alunos',
-						'Our facilities were designed to provide comfort and improve the attention and the learning process'
-					) ?>
+					<?php echo get_field('home-escola-conheca') ?>
 				</p>
 				<div class="col-xs-12">
-					<a href="<?php echo bloginfo('url') ?>/l('clinica/a-escola', 'clinic/our-school')" class="ipo-bt orange-bd hover-orange"><?php l('Confira', 'Take a look') ?></a>
+					<a href="<?php echo bloginfo('url') ?>/<?php l('clinica/a-escola', 'clinic/our-school') ?>" class="ipo-bt orange-bd hover-orange"><?php l('Confira', 'Take a look') ?></a>
 				</div>
 			</div>
 		</section>

@@ -3,13 +3,12 @@
 	<div class="container">
 
 		<div class="row header">
-			<h2 class="title orange col-md-8 col-md-offset-2"><?php l('Instrutores IPO:PALMIERI', 'IPO:PALMIERI Instructors') ?></h2>
+			<h2 class="title orange col-md-8 col-md-offset-2">
+				<?php l('Instrutores IPO:PALMIERI', 'IPO:PALMIERI Instructors') ?>
+			</h2>
 			<div class="ipo-linha gray center"></div>
 			<p class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-				<?php l(
-					'Nossos cursos contam com professores fixos e professores convidados. Procuramos, a cada ano, diferenciar estes professores convidados de maneira a buscar técnicas e opiniões válidas para nosso método',
-					'The professors of our courses are permanent professors as well as visiting professors. Each year, we have different visiting professors, so that we have different approaches and opinions regarding our technique'
-				) ?>
+				<?php echo get_field('instrutores-chamada', get_page_by_title( l('Instrutores', 'Our Instructors', FALSE))->ID) ?>
 			</p>
 		</div>
 
@@ -18,7 +17,16 @@
 				<li class="col-md-4 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 						<?php 
 
-							$my_query = get_post_by_type('instrutores', 'ASC');
+							$args = array(
+							    'meta_query' => array(
+							        array(
+							            'key' => 'fixo',
+							            'compare' => '==',
+							            'value' => '1'
+							        )
+							    )
+							);
+							$my_query = get_post_by_type('instrutores', 'ASC', -1, NULL, $args);
 
 							$i = 0;
 
@@ -59,7 +67,7 @@
 		</div>
 
 		<div class="row link">
-			<div class="col-xs-12"><a href="<?php echo bloginfo('url') ?>/<?php l('clinica/instrutores', 'clinic/instructors') ?>" class="ipo-bt orange-bd"><?php l('Todos os Instrutores', 'Our Instructors') ?></a></div>
+			<div class="col-xs-12"><a href="<?php echo bloginfo('url') ?>/<?php l('clinica/instrutores', 'clinic/instructors') ?>" class="ipo-bt orange-bd hover-orange"><?php l('Todos os Instrutores', 'Our Instructors') ?></a></div>
 		</div>
 
 	</div>

@@ -4,25 +4,30 @@
 
 		<?php
 
-			$loop = get_post_by_type('post');
+			if( $_COOKIE['tipo_ipo'] == 'escola' )
+			{
+				$cat = get_cat_ID( l('escola', 'school', FALSE) );
+			}
+			else
+			{
+				$cat = get_cat_ID( l('clinica', 'clinic', FALSE) );
+			}
+			$args = array( 'category__in' => array( $cat ) );
+
+			$loop = get_post_by_type('post', 'DESC', -1, NULL, $args);
 			$arPosts = $loop->posts;
+
 
 		?>
 
 		<div class="row head">
 
 			<h2 class="title orange col-md-8 col-md-offset-2">
-				<?php l(
-					'Saiba como se cuidar',
-					'Learn how to take care of yourself'
-				) ?>
+				<?php echo get_field('blog-titulo') ?>
 			</h2>
 			<div class="ipo-linha gray center"></div>
 			<p class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
-				<?php l(
-					'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 
-					'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.'
-				) ?>
+				<?php echo get_field('blog-chamada') ?>
 			</p>
 
 		</div>

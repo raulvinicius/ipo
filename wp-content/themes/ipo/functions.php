@@ -1,5 +1,8 @@
 <?php 
 
+flush_rewrite_rules();
+global $wp_rewrite; $wp_rewrite->flush_rules();
+
 // CUSTOM POST
 
 function codex_custom_init() {
@@ -64,13 +67,12 @@ function codex_custom_init() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
 		'supports' => array( 'title' )
 	); 
 	register_post_type('tratamentos',$argsTratamentos);
-
 
 
 
@@ -203,9 +205,9 @@ function codex_custom_init() {
 		'show_ui' => true, 
 		'show_in_menu' => true, 
 		'query_var' => true,
-		'rewrite' => true,
+		'rewrite' => array( 'slug' => 'clinica/tratamentos'),
 		'capability_type' => 'post',
-		'has_archive' => true, 
+		'has_archive' => false, 
 		'hierarchical' => false,
 		'menu_position' => 5,
 		'supports' => array( 'title' )
@@ -214,8 +216,6 @@ function codex_custom_init() {
 
 }
 add_action( 'init', 'codex_custom_init' );
-
-
 
 
 
@@ -240,8 +240,33 @@ function my_remove_menu_pages() {
     }
 }
 
+// altera o permalink do post_type tratamentos
+add_action( 'save_post', 'tratamentos_save_post_callback' );
 
+function tratamentos_save_post_callback( $post_id ) {
 
+    // verify post is not a revision
+    if ( ! wp_is_post_revision( $post_id ) ) {
+
+        // unhook this function to prevent infinite looping
+        remove_action( 'save_post', 'tratamentos_save_post_callback' );
+
+        $posttype = get_post_type( $post_id );
+
+        if( 'tratamentos' == $posttype)
+        {
+	        // update the post slug
+	        wp_update_post( array(
+	            'ID' => $post_id,
+	            'post_name' => 'some-new-slug' // do your thing here
+	        ));
+        }
+
+        // re-hook this function
+        add_action( 'save_post', 'tratamentos_save_post_callback' );
+
+    }
+}
 
 
 // CRIA NOVA USER ROLE
@@ -494,6 +519,7 @@ function bs_materiais_table_filtering() {
 // CUSTOM IMAGE SIZE
 if ( function_exists( 'add_image_size' ) ) 
 {
+	add_image_size( 'capa-tratamento', 340, 195, true );
 	add_image_size( 'foto-instrutor', 257, 257, true );
 	add_image_size( 'hero-post', 1170, 440, true );
 	add_image_size( 'blog-g', 555, 440, true );
@@ -529,14 +555,24 @@ function l( $pt, $en, $e = TRUE)
 	}
 }
 
-function get_post_by_type($type, $order = 'DESC', $per_page = -1, $paged = NULL)
+function get_post_by_type($type, $order = 'DESC', $per_page = -1, $paged = NULL, $eArgs = NULL)
 {
 	if (!isset( $paged ) )
 	{
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	}
 
-	$args = array( 'post_type' => $type, 'posts_per_page' => $per_page, 'paged' => $paged, 'order' => $order );
+	$args = array();
+	if( isset( $eArgs ) )
+	{
+		$args = $eArgs;
+	}
+
+	$args['post_type'] 			= $type; 
+	$args['posts_per_page']		= $per_page; 
+	$args['paged']				= $paged; 
+	$args['order']				= $order;
+	
 	return new WP_Query( $args );
 }
 

@@ -2,7 +2,6 @@
 
 	<section class="pagina pagina-escola">
 		
-
 		<section class="cursos humano-carousel">
 
 			<button id="seta-esq" class="layer seta esq ani-04" data-depth="0.1"></button>
@@ -82,19 +81,18 @@
 
 		<?php include 'bloco-instrutores.php'; ?>
 
+		<?php wp_reset_query(); ?>
+
 		<section class="a-escola container-fluid bg-parallax" data-speed="10">
 			<div class="container">
 				<img src="<?php echo bloginfo('template_url') ?>/img/ipo-icon-livro-laranja.png">
 				<h2 class="col-md-10 col-md-offset-1 title orange"><?php l('Conheça nossa escola', 'Meet our facilities') ?></h2>
 				<div class="ipo-linha gray center"></div>
 				<p class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-					<?php l(
-						'Nossas instalações foram pensadas para gerar conforto e melhorar a concentração e o aprendizado dos nossos alunos',
-						'Our facilities were designed to provide comfort and improve the attention and the learning process'
-					) ?>
+					<?php echo get_field('home-escola-conheca') ?>
 				</p>
 				<div class="col-xs-12">
-					<a href="<?php echo bloginfo('url') ?>/l('clinica/a-escola', 'clinic/our-school')" class="ipo-bt orange-bd hover-orange"><?php l('Confira', 'Take a look') ?></a>
+					<a href="<?php echo bloginfo('url') ?>/<?php l('clinica/a-escola', 'clinic/our-school') ?>" class="ipo-bt orange-bd hover-orange"><?php l('Confira', 'Take a look') ?></a>
 				</div>
 			</div>
 		</section>
