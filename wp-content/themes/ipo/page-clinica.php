@@ -19,7 +19,7 @@
 
 							<li data-i="<?php echo $i ?>" class="highlight">
 								<figure>
-									<img src="<?php echo $fotos[$i]['url'] ?>">
+									<img src="<?php echo $fotos[$i]['url'] ?>" nopin='nopin'>
 								</figure>
 							</li>
 
@@ -37,7 +37,8 @@
 
 			
 			<section class="tratamentos container-fluid">
-				<div id="wrap-urgencia" class="">
+				<div id="wrap-urgencia" class="aberto">
+					<button id="descola">X</button>
 
 					<div id="urgencia">
 						

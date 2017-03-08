@@ -584,12 +584,12 @@
                     <div class="nota-seguranca">
                         <p>
                             <i class="ico"></i>
-                            <?php l(
+                            <?php /*l(
                                     '<span>Conexão segura:</span>
                                     Seus dados estão protegidos',
                                     '<span>Secure connection:</span>
                                     Your data is protected'
-                                    ) ?>
+                                    ) */?>
                         </p>
                     </div>
 

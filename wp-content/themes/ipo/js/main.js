@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$( window ).scroll(function() 
 	{
 
+		flutuaUrgencia();
 
 		setTimeout(showInAnimation,400);
 		toggleFixedMenu();
@@ -17,11 +18,22 @@ $(document).ready(function() {
 
 		if( $( window ).scrollTop() > 5 )
 		{
-			$('.site-header').height(96);
+			if (window.innerWidth > 1280) 
+			{
+				$('.site-header').height(96);
+			}
+			else if ( window.innerWidth > 480 && window.innerWidth <= 1280 )
+			{
+				$('.site-header').height(80);
+			}
+			else
+			{
+				$('.site-header').removeAttr('style')
+			}
 		}
 		else
 		{
-			$('.site-header').height(siteHeaderH);
+			$('.site-header').removeAttr('style');
 		}
 
 		//TRATAMENTO
@@ -31,11 +43,61 @@ $(document).ready(function() {
 	});
 	$( window ).trigger('scroll');
 
-
 	$( window ).resize(function(e) 
 	{
 
 		swapImages();
+
+		//escolhe a altura inicial do menu dependendo da largura da tela
+		if (window.innerWidth > 1280) 
+		{
+			siteHeaderH = 120
+		}
+		else if ( window.innerWidth > 480 && window.innerWidth <= 1280 )
+		{
+			siteHeaderH = 90
+		}
+		else
+		{
+			siteHeaderH = 'auto';
+		}
+
+
+		if($('#wrap-urgencia'))
+		{
+			//fecha o menu "urgencia" (e ajusta as setas do carrosel) se a viewport é menor que 1024
+			if( window.innerWidth <= 1024 || Math.max( $('html').scrollTop(), $('body').scrollTop() ) >= topUrgencia )
+			{
+				$('#wrap-urgencia.aberto')
+					.removeClass('aberto')
+					.addClass('fechado');
+
+				$('.pagina-clinica #seta-dir, .pagina-clinica #seta-esq')
+					.css('bottom', '75px');
+			}
+			else
+			{
+				$('#wrap-urgencia.fechado')
+					.removeClass('fechado')
+					.addClass('aberto');
+
+				$('.pagina-clinica #seta-dir, .pagina-clinica #seta-esq')
+					.css('bottom', '50px');
+			}
+
+			//atualiza a variáveis que guardam a altura e posição do menu "urgencia"
+			if (window.innerWidth <= 568)
+			{
+				hUrgenciaFechado = $('#wrap-urgencia.fechado').height() / 2 || 48;
+			}
+			else
+			{
+				hUrgenciaFechado = $('#wrap-urgencia.fechado').height() || 48;
+			}
+			topUrgenciaFechado = $('.tratamentos').offset().top - hUrgenciaFechado - $('.site-header').height();
+		}
+
+
 
 		if( $('.pagina-tratamento .descricao #tgt-descricao').length > 0 )
 		{
@@ -169,6 +231,30 @@ $(document).ready(function() {
 
 
 	//-----------------CAROUSEL ESCOLA-----------------//
+
+
+
+
+
+
+	//-----------------HOME CLINICA-----------------//
+
+
+	if( $('.pagina-clinica').length > 0 )
+	{
+		$('#wrap-urgencia #descola').on('click', function(event) {
+			event.preventDefault();
+
+			$(this)
+				.closest('#wrap-urgencia')
+				.removeAttr('style')
+				.removeClass('colado')
+				.addClass('descolado')
+		});
+	}
+
+
+	//-----------------HOME CLINICA-----------------//
 
 
 
@@ -534,7 +620,9 @@ $('form.confirma-email input[type="submit"]').bind('click',
 		$(this).closest('.alert').hide();
 	})
 
-});
+
+
+}); //end $(document).ready
 
 
 
@@ -1192,4 +1280,78 @@ function flutuaBtnMarcar()
 			});
 		}
 	}
+}
+
+var topUrgencia = 0;
+var topUrgenciaFechado = 0;
+var hUrgencia = Math.max($('#wrap-urgencia.aberto').height(), 359);
+var hUrgenciaFechado = $('#wrap-urgencia.fechado #urgencia').height() || 48;
+function flutuaUrgencia()
+{
+	if( $('#wrap-urgencia').length > 0 && window.innerWidth > 1024 )
+	{
+
+
+		topUrgencia = Math.max($('.tratamentos').offset().top - hUrgencia - $('.site-header').height() - 20, 1);
+
+		if( Math.max( $('html').scrollTop(), $('body').scrollTop() ) >= topUrgencia )
+		{
+			console.log(hUrgenciaFechado)
+			console.log(topUrgenciaFechado)
+
+			$('#wrap-urgencia')
+				.removeClass('aberto')
+				.addClass('fechado');
+				
+
+			$('.pagina-clinica #seta-dir, .pagina-clinica #seta-esq')
+				.css('bottom', '75px');
+		}
+		
+		if( Math.max( $('html').scrollTop(), $('body').scrollTop() ) < topUrgencia )
+		{
+			$('#wrap-urgencia')
+				.removeClass('fechado')
+				.addClass('aberto');
+
+			$('.pagina-clinica #seta-dir, .pagina-clinica #seta-esq')
+				.css('bottom', '50px');
+		}
+	}
+
+	if( $('#wrap-urgencia.fechado').length > 0 	)
+	{
+		if (hUrgenciaFechado == null)
+			hUrgenciaFechado = $('#wrap-urgencia.fechado').height() || 48;
+
+		topUrgenciaFechado = $('.tratamentos').offset().top - hUrgenciaFechado - $('.site-header').height();
+
+
+		if( Math.max( $('html').scrollTop(), $('body').scrollTop() ) >= topUrgenciaFechado )
+		{
+			//só flutua o menu se ele não tiver a classe "descolado"
+			if( $('#wrap-urgencia.descolado').length == 0 || ( $('#wrap-urgencia.descolado').length > 0 && window.innerWidth > 568 ) )
+			{
+				$('#wrap-urgencia.fechado')
+					.addClass('colado')
+					.css({
+						position: 'fixed',
+						'margin-top': '0',
+						top: $('.site-header').height() + 'px'
+					})
+			}
+		}
+		else
+		{
+			$('#wrap-urgencia.fechado')
+				.removeClass('colado')
+				.removeAttr('style');
+		}
+
+	}
+	else
+	{
+		$('#wrap-urgencia').removeAttr('style');
+	}
+
 }

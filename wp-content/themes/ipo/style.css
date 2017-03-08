@@ -1224,6 +1224,11 @@ button.ipo-bt.secundario
 
 @media (max-width: 1024px) {
 
+    body .pagina-clinica #wrap-urgencia.fechado
+    {
+        margin-bottom: 0;
+    }
+
     body .bloco-instrutores .lista
     {
         margin-top: 40px;
@@ -2175,13 +2180,13 @@ button.ipo-bt.secundario
         bottom: 75px;
     }
 
-    body .pagina-clinica #wrap-urgencia
+    body .pagina-clinica #wrap-urgencia.fechado
     {
         width: 100%;
         left: 0;
     }
 
-    body .pagina-clinica #wrap-urgencia #urgencia
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia
     {
         background: #25252b;
         border-top: none;
@@ -2261,9 +2266,35 @@ button.ipo-bt.secundario
         height: 30px;
     }
 
-    body .pagina-clinica #wrap-urgencia
+    body .pagina-clinica #wrap-urgencia.fechado
     {
         margin-bottom: 0;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia h2
+    {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia h2,
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia h2 span
+    {
+        font-size: 15px;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia h2 i
+    {
+        widows: 30px;
+        height: 30px;
+        margin-right: 5px;
+        vertical-align: -65%;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia .wrap-button
+    {
+        padding-top: 9px;
+        padding-bottom: 9px;
     }
 
     .pagina-clinica #wrap-tratamentos li
@@ -2272,32 +2303,6 @@ button.ipo-bt.secundario
         padding-right: 15%;
         margin-bottom: 20px;
         margin-top: 20px;
-    }
-
-    body .pagina-clinica #wrap-urgencia #urgencia h2
-    {
-        display: inline;
-        margin-right: 20px;
-    }
-
-    body .pagina-clinica #wrap-urgencia #urgencia h2,
-    body .pagina-clinica #wrap-urgencia #urgencia h2 span
-    {
-        font-size: 15px;
-    }
-
-    body .pagina-clinica #wrap-urgencia #urgencia h2 i
-    {
-        widows: 30px;
-        height: 30px;
-        margin-right: 5px;
-        vertical-align: -65%;
-    }
-
-    body .pagina-clinica #wrap-urgencia #urgencia .wrap-button
-    {
-        padding-top: 9px;
-        padding-bottom: 9px;
     }
 
     body .pagina-clinica #urgencia button
@@ -2315,17 +2320,27 @@ button.ipo-bt.secundario
 
 @media (max-width: 568px) {
 
-    body .pagina-clinica #wrap-urgencia #urgencia .wrap-txt,
-    body .pagina-clinica #wrap-urgencia #urgencia .wrap-button
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia .wrap-txt,
+    body .pagina-clinica #wrap-urgencia.fechado #urgencia .wrap-button
     {
         display: block;
         width: 100%;
         text-align: center;
     }
 
-    body .pagina-clinica #wrap-urgencia
+    body .pagina-clinica #wrap-urgencia.fechado
     {
         margin-bottom: -50px;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado.colado #descola
+    {
+        display: block;
+    }
+
+    body .pagina-clinica #wrap-urgencia.fechado.descolado #descola
+    {
+        display: none;
     }
 
     body .pagina-clinica #wrap-tratamentos
@@ -3449,7 +3464,39 @@ footer .fase-01 .box #email i
     right: 15px;
     z-index: 2;
     margin-bottom: 15px;
+}
 
+.pagina-clinica #wrap-urgencia.fechado #urgencia h2
+{
+    text-align: right;
+}
+
+.pagina-clinica #wrap-urgencia #descola
+{
+    display: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-family: 'CenturyGothic-Bold', Arial, sans-serif;
+    font-weight: bolder;
+    background: #f7931e;
+    width: 30px;
+    height: 50px;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: -48px;
+    z-index: 1000;
+    margin-bottom: -25px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.pagina-clinica #wrap-urgencia   #descola
+.pagina-clinica #wrap-urgencia.fechado.descolado #descola
+{
+    display: none;
 }
 
 .pagina-clinica #urgencia
@@ -3512,7 +3559,7 @@ footer .fase-01 .box #email i
 .pagina-clinica #wrap-urgencia.fechado
 {
     width: 100%;
-    margin-top: -64px;
+    margin-top: -48px;
     top: 0;
     left: 0;
 }

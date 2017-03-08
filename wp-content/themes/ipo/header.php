@@ -300,7 +300,7 @@
         
         ?>
 
-        <header class="site-header ani-04 <?php echo (is_page('area-do-aluno')) ? 'area-aluno' : ''; ?>">
+        <header class="site-header ani-02 <?php echo (is_page('area-do-aluno')) ? 'area-aluno' : ''; ?>">
             <div class="container-fluid">
 
                 <div class="row">
