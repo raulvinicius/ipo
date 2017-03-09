@@ -20,15 +20,15 @@ $(document).ready(function() {
 		{
 			if (window.innerWidth > 1280) 
 			{
-				$('.site-header').height(96);
+				$('.site-header').not('.area-aluno').height(96);
 			}
 			else if ( window.innerWidth > 480 && window.innerWidth <= 1280 )
 			{
-				$('.site-header').height(80);
+				$('.site-header').not('.area-aluno').height(80);
 			}
 			else
 			{
-				$('.site-header').removeAttr('style')
+				$('.site-header').not('.area-aluno').removeAttr('style')
 			}
 		}
 		else
@@ -63,7 +63,7 @@ $(document).ready(function() {
 		}
 
 
-		if($('#wrap-urgencia'))
+		if($('#wrap-urgencia').length > 0)
 		{
 			//fecha o menu "urgencia" (e ajusta as setas do carrosel) se a viewport é menor que 1024
 			if( window.innerWidth <= 1024 || Math.max( $('html').scrollTop(), $('body').scrollTop() ) >= topUrgencia )

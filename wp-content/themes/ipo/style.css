@@ -1121,6 +1121,11 @@ button.ipo-bt.secundario
         display: inline-block;
     }
 
+    body header.site-header.area-aluno nav #bt-open-menu
+    {
+        display: none;
+    }
+
     body header.site-header nav #links,
     body header.site-header nav #versao-menu
     {
@@ -4758,9 +4763,345 @@ form.confirma-email #error
 
 /*----------------------AREA DO ALUNO----------------------*/
 
+
+
+@media (max-width: 1400px){
+
+    body .pagina-area-aluno .card.artigo #material a
+    {
+        font-size: 17px;        
+        margin: 20px 0 25px;
+    }
+
+    body .pagina-area-aluno .card h3,
+    body .pagina-area-aluno .card #comentario p
+    {
+        font-size: 14px
+    }
+
+    body .pagina-area-aluno .card #comentario 
+    {
+        margin-bottom: 65px;
+    }
+
+    body .pagina-area-aluno .card #autor #avatar p,
+    body .pagina-area-aluno .card #autor #date p
+    {
+        font-size: 11px;
+    }
+
+    body .pagina-area-aluno .card #comentario h2
+    {
+        font-size: 15px;
+
+    }
+
+    body .pagina-area-aluno .card #material a
+    {
+        font-size: 48px;
+    }
+
+}
+
+@media (max-width: 1150px){
+
+    body .pagina-area-aluno #menu a p
+    {
+        font-size: 10px;
+        line-height: 1;
+    }
+
+    html body .pagina-area-aluno .card.artigo #material a
+    {
+        font-size: 13px;
+        margin: 15px 0;
+    }
+
+    html body .pagina-area-aluno .card h3,
+    html body .pagina-area-aluno .card #comentario p
+    {
+        font-size: 11px
+    }
+
+    body .pagina-area-aluno .card #comentario p
+    {
+        margin-bottom: 10px;
+    }
+
+    body .pagina-area-aluno .card #autor
+    {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        margin-top: 5px;
+    }
+
+    body .pagina-area-aluno .card #identificacao 
+    {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    body .pagina-area-aluno .card #autor
+    {
+        bottom: 8px;
+        right: 8px;
+    }
+
+    html body .pagina-area-aluno .card #autor #avatar p,
+    html body .pagina-area-aluno .card #autor #date p
+    {
+        font-size: 9px;
+    }
+
+    html body .pagina-area-aluno .card #comentario h2
+    {
+        font-size: 12px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    html body .pagina-area-aluno .card #material a
+    {
+        font-size: 37px;
+    }
+
+    body .pagina-area-aluno .card #material
+    {
+        margin-bottom: 8px;
+    }
+
+    body .pagina-area-aluno .card
+    {
+        padding: 8px;
+        margin-bottom: 25px;
+    }
+
+}
+
+
+@media (max-width: 991px){
+
+    body .pagina-area-aluno .card #identificacao
+    {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border: none;
+        border-bottom: 1px solid #f9f9f9;
+        margin-bottom: 16px;
+    }
+
+    body .pagina-area-aluno .card #identificacao img
+    {
+        display: inline;
+        width: 32px;
+        margin-right: 8px;
+    }
+
+    body .pagina-area-aluno .card #identificacao h3
+    {
+        display: inline;
+        vertical-align: middle;;
+        height: 30px;
+    }
+
+    body .pagina-area-aluno .card #infos
+    {
+        border: none;
+    }
+
+    body .pagina-area-aluno .card #comentario
+    {
+        margin-bottom: 75px;
+    }
+
+    body .pagina-area-aluno .card #autor
+    {
+        left: 8px;
+        margin-left: 0;
+    }
+
+}
+
+
+@media (max-width: 767px){
+
+    header.site-header.area-aluno #logo
+    {
+        width: 25%;
+    }
+
+    header.site-header.area-aluno #wrap-nav
+    {
+        width: 75%;
+        float: left;
+    }
+
+    body header.site-header.area-aluno #logo #svg-logo svg
+    {
+        width: 85%;
+    }
+
+}
+
+
+@media (max-width: 685px){
+
+    body header.site-header.area-aluno
+    {
+        height: 60px;
+    }
+
+    body header.site-header.area-aluno #wrap-nav ul #logoff
+    {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        height: 61px;
+    }
+
+    body header.site-header.area-aluno #wrap-nav
+    {
+        width: 65%;
+        border: none;
+    }
+
+    body header.site-header.area-aluno #wrap-nav .wrap-nome
+    {
+        border: none;
+        height: 61px;
+        margin: 0;
+        padding-right: 8px;
+    }
+
+    body header.site-header.area-aluno #wrap-nav .wrap-nome p
+    {
+        line-height: 61px;
+    }
+
+    body header.site-header.area-aluno #logo
+    {
+        width: 25%;
+        border: none;
+        background: #121218;
+    }
+
+    body header.site-header.area-aluno #logo:before
+    {
+        border-bottom: none;
+        margin-top: 10px;
+        margin-left: -8px;
+        border: none;
+    }
+
+    header.site-header.area-aluno #logo #svg-logo svg
+    {
+        display: none;
+    }
+
+    /*bloco duplicado apenas para subrescrever o margin feito por outro media*/
+    body header.site-header.area-aluno #logo
+    {
+        border: none;
+        width: 35%;
+    }
+
+    /* body header.site-header.area-aluno nav #bt-open-menu
+    {
+        display: inline-block;
+    } */
+
+    body .pagina-area-aluno #menu
+    {
+        width: 100%;
+        padding: 0;
+        height: auto;
+        top: 60px;
+    }
+
+    body .pagina-area-aluno #menu nav > ul
+    {
+        padding-top: 0;
+        border: none;
+    }
+
+    body .pagina-area-aluno #menu ul
+    {
+        margin: 0;
+        height: 80%;
+    }
+
+    /*bloco duplicado apenas para subrescrever o margin feito por outro media*/
+    body .pagina-area-aluno #menu nav ul li
+    {
+        margin: 0;
+    }
+
+    body .pagina-area-aluno #menu li
+    {
+        display: inline-block;
+        width: 25%;
+        height: 100%;
+        text-align: center;
+    }
+
+    body .pagina-area-aluno #menu ul li:first-child:before
+    {
+        content: none;
+    }
+
+    body .pagina-area-aluno #menu li:before
+    {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border-right: 1px solid #555;
+        width: 1px;
+    }
+
+    body .pagina-area-aluno #menu li .ico
+    {
+        margin: 0;
+        padding: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        right: 0;
+        bottom: 14px;
+        top: 0;
+        background-attachment: center center;
+    }
+
+    body .pagina-area-aluno #menu li p
+    {
+        text-indent: -9999px;
+    }
+
+    body .pagina-area-aluno #menu li #novos
+    {
+        bottom: 8px;
+        right: 8px;
+        top: auto;
+        margin-top: 0;
+        background: white;
+        border: none;
+        color: #1d1d23;
+    }
+
+    body .pagina-area-aluno #conteudo
+    {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+
 header.site-header.area-aluno
 {
-    height: auto;
+    height: 90px;
 }
 
 header.site-header.area-aluno nav
@@ -4795,8 +5136,9 @@ header.site-header.area-aluno #logo
     background: #1d1d23;
     padding-top: 6px;
     padding-bottom: 0px;
-    height: 89px;
+    height: 100%;
     position: relative;
+    border-bottom: 1px solid #555;
 }
 
 header.site-header.area-aluno #logo:after
@@ -4866,6 +5208,7 @@ header.site-header.area-aluno #wrap-nav ul #logoff
     background: url(img/ipo-bt-logoff.png) no-repeat center white;
     height: 22px;
     width: 20px;
+    margin-top: -1px;
 }
 
 header.site-header.area-aluno #wrap-nav ul #logoff a
@@ -4880,10 +5223,14 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     background: url(img/ipo-bt-logoff-branco.png) no-repeat center #f7931e;
 }
 
+.pagina-area-aluno
+{
+    margin-top: 0;
+}
+
 .pagina-area-aluno,
 .pagina-area-aluno .row,
-.pagina-area-aluno #menu,
-.pagina-area-aluno #conteudo
+.pagina-area-aluno #menu
 {
     height: 100%;
 }
@@ -4975,44 +5322,91 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 
 .pagina-area-aluno #menu a
 {
-    padding: 18px 30px 18px 30px;
+    padding: 0 15px;
     display: block;
-    font: 16px 'CenturyGothic-Bold', Arial, sans-serif;
+    position: relative;
+    height: 60px;
+}
+
+.pagina-area-aluno #menu a .ico
+{
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;    
+    top: 50%;
+    margin-top: -10px;
+} 
+
+.pagina-area-aluno #menu a p
+{
+    padding: 0 45px 0 25px;
+    margin: 0;
+    font: 13px 'CenturyGothic-Bold', Arial, sans-serif;
     text-transform: uppercase;
     color: #ffffff;
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
 }
 
-.pagina-area-aluno #menu nav > ul > li > a:before
+.pagina-area-aluno #menu a #novos
 {
-    content: '';
-    vertical-align: -45%;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-right: 7px;
+    font-size: 10px;
+    color: #f7931e;
+    border-radius: 10px;
+    border: 2px solid #f7931e;
+    padding: 0px 6px 0px 6px;
+    line-height: 17px;
+    font-style: normal;
+    position: absolute;    
+    right: 15px;
+    top: 50%;
+    margin-top: -10px;
 }
 
-.pagina-area-aluno #menu a#arquivo:before
+.pagina-area-aluno #menu a.disabled p
+{
+    color: #aaa;
+    font-style: italic;
+    font-family: 'CenturyGothic', Arial, sans-serif;
+}
+
+.pagina-area-aluno #menu a.disabled #novos
+{
+    border-color: #c4c4c4;
+    color: #c4c4c4;
+}
+
+.pagina-area-aluno #menu a#todos .ico
+{
+    background: url(img/ipo-icon-bt-todos.png) no-repeat center;
+}
+
+.pagina-area-aluno #menu a#arquivo .ico
 {
     background: url(img/ipo-icon-bt-arquivos.png) no-repeat center;
 }
 
-.pagina-area-aluno #menu a#artigo:before
+.pagina-area-aluno #menu a#artigo .ico
 {
     background: url(img/ipo-icon-bt-artigos.png) no-repeat center;
 }
 
-.pagina-area-aluno #menu a#comunicado:before
+.pagina-area-aluno #menu a#comunicado .ico
 {
     background: url(img/ipo-icon-bt-comunicados.png) no-repeat center;
 }
 
-.pagina-area-aluno #menu a#duvidas:before
+.pagina-area-aluno #menu a#duvidas .ico
 {
     background: url(img/ipo-icon-bt-duvidas.png) no-repeat center;
 }
 
-.pagina-area-aluno #menu a#perfil:before
+.pagina-area-aluno #menu a#perfil .ico
 {
     background: url(img/ipo-icon-bt-perfil.png) no-repeat center;
 }
@@ -5022,17 +5416,6 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 .pagina-area-aluno #menu a:active
 {
     background: #0e0e11;
-}
-
-.pagina-area-aluno #menu a #novos
-{
-    font-size: 10px;
-    color: #f7931e;
-    border-radius: 10px;
-    border: 1px solid #f7931e;
-    vertical-align: 21%;
-    padding: 0px 5px 1px 4px;
-    margin-left: 5px;
 }
 
 .pagina-area-aluno #menu #instrutores li img
@@ -5055,6 +5438,8 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
 {
     background: #f2f2f2;
     padding-top: 34px;
+    min-height: 100%;
+    padding-top: 112px;
 }
 
 .pagina-area-aluno #aviso
@@ -5175,7 +5560,7 @@ header.site-header.area-aluno #wrap-nav ul #logoff:active
     color: #f7931e;
     display: block;
     margin: 30px 0 40px;
-    padding: 20px 10px;
+    padding: 20px 10px 20px 0;
 }
 
 .pagina-area-aluno .card.arquivo #material a:after

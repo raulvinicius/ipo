@@ -44,7 +44,7 @@
 
 <section class="pagina pagina-area-aluno container-fluid">
 	<div class="row">
-		<div id="menu" class="col-md-2">
+		<div id="menu" class="col-md-2 col-xs-3">
 
 			<?php 
 
@@ -107,11 +107,38 @@
 			<nav>
 				<ul>
 
+
 					<?php if ( isset($liberado) && $liberado == true ): ?>
 						
-						<li><a id="arquivo" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=arquivo">Materiais de Apoio <?php echo ( $nArquivos > 0 ) ? '<span id="novos">' . $nArquivos . '</span>' : ''; ?></a></li>
-						<li><a id="artigo" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=artigo">Artigos <?php echo ( $nArtigos > 0 ) ? '<span id="novos">' . $nArtigos . '</span>' : ''; ?></a></li>
-						<li><a id="comunicado" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=comunicado">Comunicados <?php echo ( $nComunicados > 0 ) ? '<span id="novos">' . $nComunicados . '</span>' : ''; ?></a></li>
+						<li>
+							<a id="todos" class="ani-04 <?php echo (isset($_GET['t'])) ? '' : 'disabled'; ?>" <?php echo (isset($_GET['t'])) ? 'href="' . get_bloginfo('url') . '/area-do-aluno/"' : ''; ?> >
+								<span class="ico"></span>
+								<p>Todos os cards</p>
+								<?php echo ( $nArquivos > 0 || $nArtigos > 0 || $nComunicados > 0 ) ? '<span id="novos">' . ( $nArquivos + $nArtigos + $nComunicados ) . '</span>' : ''; ?>
+								<div class="clearfix"></div>
+							</a>
+						</li><li>
+							<a id="arquivo" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=arquivo">
+								<span class="ico"></span>
+								<p>Materiais de Apoio</p>
+								<?php echo ( $nArquivos > 0 ) ? '<span id="novos">' . $nArquivos . '</span>' : ''; ?>
+								<div class="clearfix"></div>
+							</a>
+						</li><li>
+							<a id="artigo" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=artigo">
+								<span class="ico"></span>
+								<p>Artigos</p>
+								<?php echo ( $nArtigos > 0 ) ? '<span id="novos">' . $nArtigos . '</span>' : ''; ?>
+								<div class="clearfix"></div>
+							</a>
+						</li><li>
+							<a id="comunicado" class="ani-04" href="<?php bloginfo('url') ?>/area-do-aluno/?t=comunicado">
+								<span class="ico"></span>
+								<p>Comunicados</p>
+								<?php echo ( $nComunicados > 0 ) ? '<span id="novos">' . $nComunicados . '</span>' : ''; ?>
+								<div class="clearfix"></div>
+							</a>
+						</li>
 						<!-- 
 						<span class="separator"></span>
 						<li class="submenu">
@@ -148,7 +175,7 @@
 			</nav>
 			
 		</div>
-		<div id="conteudo" class="col-md-10 col-md-offset-2">
+		<div id="conteudo" class="col-md-10 col-md-offset-2 col-xs-9 col-xs-offset-3">
 
 
 			<?php 
@@ -159,11 +186,11 @@
 					$hora = intval($sp_date->format('H'));
 
 					$saudacao = 'Bom dia,';
-					if ( $hora >= 12 && $hora <= 17 ) 
+					if ( $hora >= 12 && $hora <= 17 )
 					{
 						$saudacao = 'Boa tarde,';
 					}
-					else if ( $hora > 18 && $hora <= 23 )
+					else if ( $hora > 17 && $hora <= 23 )
 					{
 						$saudacao = 'Boa noite,';
 					}
@@ -246,18 +273,16 @@
 												
 												<div id="material" class="col-md-12">
 													<?php if ($tipo == 'arquivo'): ?>
-														<a class="ani-06" href="<?php echo get_bloginfo('template_url') . '/' . $conteudo['filename'] ?>"><?php echo substr( $conteudo['filename'], strrpos($conteudo['filename'], '.'), 10 ) ?></a>
+														<a class="ani-06" href="<?php echo get_bloginfo('template_url') . '/' . $conteudo['filename'] ?>" target="_blank"><?php echo substr( $conteudo['filename'], strrpos($conteudo['filename'], '.'), 10 ) ?></a>
 													<?php elseif ($tipo == 'artigo') : ?>
-														<a class="ani-06" href="<?php echo $conteudo ?>"><?php echo $conteudo ?></a>
+														<a class="ani-06" href="<?php echo $conteudo ?>" target="_blank"><?php echo $conteudo ?></a>
 													<?php endif ?>
 												</div>
 
 											<?php endif ?>
 											<div id="comentario" class="col-md-12">
 												<h2 class="title"><?php echo get_the_title( $material->ID ) ?></h2>
-												<p>
-													<?php echo ($tipo == 'comunicado') ? $conteudo : $comentario ?>
-												</p>
+													<?php echo ($tipo == 'comunicado') ? $conteudo : '<p>' . $comentario . '</p>' ?>
 											</div>
 										</div>
 										<div id="autor" class="">
@@ -286,6 +311,8 @@
 
 			
 			</div>
+
+			<div class="clearfix"></div>
 			
 		</div>
 	</div>
