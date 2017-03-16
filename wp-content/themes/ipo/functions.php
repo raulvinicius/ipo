@@ -1,8 +1,8 @@
 <?php 
 
-flush_rewrite_rules();
-global $wp_rewrite; $wp_rewrite->flush_rules();
-
+// flush_rewrite_rules();
+// global $wp_rewrite; $wp_rewrite->flush_rules();
+// 
 // CUSTOM POST
 
 function codex_custom_init() {
@@ -334,7 +334,7 @@ function your_login_redirect( $redirect_to, $request, $user )
             return admin_url() . 'edit.php?post_type=materiais';
         } else if ( in_array( 'aluno', $user->roles ) ) {
             // pick where to redirect to, in the example: Posts page
-            return get_bloginfo('url') . '/area-do-aluno/';
+            return get_bloginfo('url') . l('/area-do-aluno/', '/student-area/', false);
         } else {
             return admin_url();
         }

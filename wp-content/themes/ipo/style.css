@@ -5167,6 +5167,11 @@ header.site-header.area-aluno #logo:before
     border-bottom: 1px solid #555;
 }
 
+.en header.site-header.area-aluno #logo:before
+{
+    content: 'Student Area';
+}
+
 header.site-header.area-aluno #wrap-nav .wrap-nome,
 header.site-header.area-aluno #wrap-nav ul
 {

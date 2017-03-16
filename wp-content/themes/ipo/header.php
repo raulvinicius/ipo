@@ -58,7 +58,7 @@
 <html
     xmlns='http://www.w3.org/1999/xhtml'
     xmlns:og='http://ogp.me/ns#'
-    class="no-js"
+    class="no-js <?php echo pll_current_language(); ?>"
     lang="<?php echo (pll_current_language() == 'pt') ? 'pt-br' : 'en-us'; ?>">
 <!--<![endif]-->
 
@@ -84,6 +84,9 @@
 
         <link href="<?php bloginfo('template_url') ?>/jivosite/jivosite.css" rel="stylesheet" />
         <script src="<?php bloginfo('template_url') ?>/jivosite/jivosite.js" type="text/javascript"></script>
+
+        <!-- envia o idioma atual para o jquery  -->
+        <script type="text/javascript">var pll_current_language = '<?php echo pll_current_language() ?>';</script>
 
         <!-- http://www.favicon-generator.org/ -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php bloginfo('template_url') ?>/favicon/apple-icon-57x57.png">
@@ -300,7 +303,7 @@
         
         ?>
 
-        <header class="site-header ani-02 <?php echo (is_page('area-do-aluno')) ? 'area-aluno' : ''; ?>">
+        <header class="site-header ani-02 <?php echo ( is_page(l('area-do-aluno', 'student-area', false)) ) ? 'area-aluno' : ''; ?>">
             <div class="container-fluid">
 
                 <div class="row">
@@ -417,7 +420,7 @@
                     </div>
 
                         
-                    <?php if (!is_home() && !is_page('area-do-aluno')): ?>
+                    <?php if (!is_home() && !is_page( l('area-do-aluno', 'student-area', false) )): ?>
 
 
                         <div id="wrap-nav" class="col-md-10 col-sm-9">
@@ -572,7 +575,7 @@
                             </nav>
                         </div>
 
-                    <?php elseif ( is_page('area-do-aluno')) : ?>
+                    <?php elseif ( is_page( l('area-do-aluno', 'student-area', false) )) : ?>
 
                         <div id="wrap-nav" class="col-md-10 col-sm-9">
                             <nav>

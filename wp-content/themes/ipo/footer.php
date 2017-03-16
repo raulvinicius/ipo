@@ -1,5 +1,5 @@
 
-        <?php if (!is_page('area-do-aluno')): ?>
+        <?php if (!is_page( l('area-do-aluno', 'student-area', false) )): ?>
             
             <footer>
 
